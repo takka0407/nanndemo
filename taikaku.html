@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>電波人間お役立ちサイト</title>
+</head>
+<body>
+    <h1 div class="title">電波人間お役立ちサイト</h1></div>
+<!--CSS-->
+    <style>
+    @media screen and (max-width:480px) {
+        .title{font-size:large
+        }
+        #kekka{
+            font-size:large
+    }
+        #syussei {
+            width : 100vw ; 
+            display: none;    
+    }
+        #nomakya {
+            width: 100vw ; 
+            display: none;    
+    }
+        #nomakya2 {
+            width : 100vw ; 
+            display: none;    
+    }
+        #rennga {
+            width : 100vw ; 
+            display: none;    
+    }
+        #setumei {
+            width : 100vw ; 
+            display: none;    
+        }
+    }
+    @media screen and (min-width:481px) {
+    #kekka{
+        font-size: xx-large;
+    }
+    #syussei {
+        width : 50vw ; 
+        display: none;    
+    }
+    #nomakya {
+        width : 50vw ; 
+        display: none;    
+    }
+    #nomakya2 {
+        width : 50vw ; 
+        display: none;    
+    }
+    #rennga {
+        width : 50vw ; 
+        display: none;    
+    }
+    #setumei {
+        width : 50vw ; 
+        display: none;    
+    }
+    }
+
+    .title {
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+    }
+
+    #kaihi3tyuui{
+        color: crimson;
+        font-size: large;
+    }
+    #kekka{
+        color: blue;
+        border: solid 3px #364e96;/*線色*/
+        padding: 0.5em;/*文字周りの余白*/
+        border-radius: 0.5em;/*角丸*/
+    }
+    </style>
+    <a href="oyakudati.html">ホームへ戻る</a>
+    <p>体格が分かる体格表はこちらから</p>
+    <input type="button" value="出生用"
+    onclick="document.getElementById('syussei').style.display = 'inline';">
+    <p>
+        <img src="images/syussei.jpg" id="syussei" alt="出生版体格表">
+    </p>
+
+    <input type="button" value="ノマキャ用"
+    onclick="document.getElementById('nomakya').style.display = 'inline';">
+    <p>
+        <img src="images/nomakya.jpg" id="nomakya" alt="ノマキャ版体格表">
+    </p>
+
+    <input type="button" value="ノマキャ特化用"
+    onclick="document.getElementById('nomakya2').style.display = 'inline';">
+    <p>
+        <img src="images/nomakya2.jpg" id="nomakya2" alt="ノマキャ特化版体格表">
+    </p>
+
+    <input type="button" value="レンガ用"
+    onclick="document.getElementById('rennga').style.display = 'inline';">
+    <p>
+        <img src="images/rennga.jpg" id="rennga" alt="レンガ版体格表">
+    </p>
+
+    <input type="button" value="説明"
+    onclick="document.getElementById('setumei').style.display = 'inline';">
+    <p>
+        <img src="images/setumei.jpg" id="setumei" alt="説明">
+    </p>
+
+    <a href="https://takka0407.github.io/taikakushindan/" class="btn">表とか分からない人は体格診断サイトへ！</a><br>
+    <a href="https://twitter.com/statusdenpa" class="btn">Lv500時の素早さなど知りたい方へ</a><br>
+    <a href="http://nakagai.blog111.fc2.com/blog-entry-315.html" class="btn">体格表の元となったサイト様</a><br>
+    <a href="http://nakagai.blog111.fc2.com/blog-entry-385.html" class="btn">素早さ別体格一覧</a><br>
+    <a href="http://nakagai.blog111.fc2.com/blog-entry-382.html" class="btn">回避率別体格一覧</a><br>
