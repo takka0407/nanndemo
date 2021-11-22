@@ -7,10 +7,41 @@
 </head>
 <body>
     <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<!--JS-->
+<script>
+jQuery(function() {
+    var appear = false;
+    var pagetop = $('#page_top');
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
+        if (appear == false) {
+          appear = true;
+          pagetop.stop().animate({
+            'right': '0px' //右から0pxの位置に
+          }, 300); //0.3秒かけて現れる
+        }
+      } else {
+        if (appear) {
+          appear = false;
+          pagetop.stop().animate({
+            'right': '-50px' //右から-50pxの位置に
+          }, 300); //0.3秒かけて隠れる
+        }
+      }
+    });
+    pagetop.click(function () {
+      $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
+      return false;
+    });
+  });
+</script>
 
 <!--CSS-->
     <style>
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:640px) {
         .title{font-size:large
         }
         .img {
@@ -20,7 +51,7 @@
         align-items: flex-start;  
     }
 }
-    @media screen and (min-width:481px) {
+    @media screen and (min-width:641px) {
 
     .img {
         width : 50vw ; 
@@ -30,16 +61,6 @@
         align-items: flex-start; 
 
     }
-}
-@media screen and (min-width:640px) {
-
-.img {
-    width : 100vw ; 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-
-}
 }
     @media screen and (min-width:960px) {
 
@@ -64,7 +85,43 @@
 	padding:4px;
 	writing-mode: horizontal-tb;	
 	height:25px;	
-    	
+}
+h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: -50px;
+  bottom: 50px;
+  background: #ef3f40;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
 }
     </style>
         <a href="index.html">ホームへ戻る</a><br>
@@ -73,6 +130,10 @@
             <li><a href="ibekya.html#1gatu" class="btn">1月</a></li> 
             <li><a href="ibekya.html#2gatu" class="btn">2月</a></li> 
             <li><a href="ibekya.html#3gatu" class="btn">3月</a></li> 
+            <li><a href="ibekya.html#4gatu" class="btn">4月</a></li> 
+            <li><a href="ibekya.html#5gatu" class="btn">5月</a></li> 
+            <li><a href="ibekya.html#6gatu" class="btn">6月</a></li> 
+            <li><a href="ibekya.html#7gatu" class="btn">7月</a></li> 
         </ul>
         <div id="1gatu"></div>
 <p>1月/お正月イベント</p>
@@ -88,6 +149,8 @@
             <tr><td>背中装備</td>
             <td>さんぽう</td>
             <td>対霊1.15倍・霊ガード10%</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">顔装備が強い、首も普通に強い</td></tr>
             </table>
 
             <img src="images/gannta.png" class="img" alt="1月イベキャ">
@@ -101,6 +164,8 @@
                 <tr><td>腕装備</td>
                 <td>はごいたとそで</td>
                 <td>必中・激レア+1.50倍</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">首が少し使えるくらい</td></tr>
                 </table><br>
             <img src="images/matukiti.png" class="img" alt="1月イベキャ">
             <table border="1">
@@ -113,6 +178,8 @@
                 <tr><td>背中装備</td>
                 <td>かどまつのはかま</td>
                 <td>ゴールド+0.35倍・おたから+1.0倍</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">どの装備も強い。頭の形も砦なので良い</td></tr>
                 </table><br>
             <img src="images/kagura.png" class="img" alt="1月イベキャ">
             <table border="1">
@@ -128,6 +195,8 @@
                 <tr><td>背中装備</td>
                 <td>ひばかま</td>
                 <td>光属性+0.15倍・最大HP+50</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">どれも微妙。強いて言うなら服くらい</td></tr>
                 </table><br>
             <img src="images/sinnzi.png" class="img" alt="1月イベキャ">
             <table border="1">
@@ -143,6 +212,8 @@
                 <tr><td>背中装備</td>
                 <td>かんぬしのはかま</td>
                 <td>対魔+0.20倍・最大AP+20</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">顔が少し使える</td></tr>
                 </table><br>
             <img src="images/daikoku.png" class="img" alt="1月イベキャ">
             <table border="1">
@@ -155,6 +226,8 @@
                 <tr><td>背中装備</td>
                 <td>たからぶね</td>
                 <td>ゴールド+0.30倍</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">ゴールド倍率装備が豊富で良い。金も含むので素材としても良い</td></tr>
                 </table><br>
         <div id="2gatu"></div>
         <p>2月/バレンタインイベント</p>
@@ -176,6 +249,8 @@
             <tr><td>背中装備</td>
             <td>パティシエエプロン</td>
             <td>全属性耐性+1・回復効果+1.50倍</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">首が実質一番APが上がるので強い。雑柄だが現在では唯一の塔頭なのも良い</td></tr>
             </table>
         <img src="images/hurann.png" class="img" alt="2月イベキャ">
             <div class="table1">
@@ -189,6 +264,8 @@
             <tr><td>首装備</td>
             <td>フランボワーズジャボ</td>
             <td>誘惑+4%</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">装備は弱い。素材にどうぞ</td></tr>
             </table>
         <img src="images/rannzyu.png" class="img" alt="2月イベキャ">
             <div class="table1">
@@ -202,6 +279,8 @@
             <tr><td>背中装備</td>
             <td>ショコラオランジュ</td>
             <td>土属性+0.20倍・防御力+30</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">首装備がガチパに2個以上は欲しい環境入り装備。顔も良いので捕まえよう。</td></tr>
             </table>
         <img src="images/kokoa.png" class="img" alt="2月イベキャ">
             <div class="table1">
@@ -218,6 +297,8 @@
             <tr><td>足装備</td>
             <td>もこもこブーツ</td>
             <td>素早さ+3・しもやけ耐性+4</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">雑柄だがハート型、なお装備は弱い</td></tr>
             </table>
         <img src="images/syokora.png" class="img" alt="2月イベキャ">
             <div class="table1">
@@ -234,6 +315,8 @@
             <tr><td>足装備</td>
             <td>もこもこブーツ</td>
             <td>素早さ+3・しもやけ耐性+4</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">装備は弱い。皆回復が欲しい人はどうぞ</td></tr>
             </table>
         <img src="images/minnto.png" class="img" alt="2月イベキャ">
             <div class="table1">
@@ -253,6 +336,8 @@
             <tr><td>足装備</td>
             <td>すばやさアンクレット</td>
             <td>素早さ+11</td></tr>
+            <tr><td>備考</td>
+            <td colspan="3">月も銀もそこまでレアではないので微妙。装備もアンテナも弱い</td></tr>
             </table>
         <div id="3gatu"></div>
         <p>3月/エッグハントイベント</p>
@@ -277,7 +362,475 @@
                 <tr><td>足装備</td>
                 <td>うさぎのあし</td>
                 <td>ゴールド+0.20倍・素早さ+5</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">桃うさ耳捕獲と優秀、装備は足が使えるくらいか。</td></tr>
                 </table>
+            <img src="images/koganemaru.png" class="img" alt="3月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>きいろたまごふく</td>
+                <td>ゴールド+0.20倍・誘惑耐性+2</td></tr>
+                <tr><td>首装備</td>
+                <td>もこもこマフラー</td>
+                <td>氷耐性+2・しもやけ耐性+4</td></tr>
+                <tr><td>背中装備</td>
+                <td>たまごのから</td>
+                <td>オート防御・防御力+5</td></tr>
+                <tr><td>足装備</td>
+                <td>とりあし</td>
+                <td>素早さ+12</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">金が欲しい人はどうぞ</td></tr>
+                </table>
+            <img src="images/siroganemaru.png" class="img" alt="3月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>あおいろたまごふく</td>
+                <td>経験値+0.20倍・誘惑耐性+2</td></tr>
+                <tr><td>首装備</td>
+                <td>もこもこマフラー</td>
+                <td>氷耐性+2・しもやけ耐性+4</td></tr>
+                <tr><td>背中装備</td>
+                <td>たまごのから</td>
+                <td>オート防御・防御力+5</td></tr>
+                <tr><td>足装備</td>
+                <td>とりあし</td>
+                <td>素早さ+12</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">銀が欲しい人はどうぞ</td></tr>
+                </table>
+            <img src="images/huro-ri-.jpg" class="img" alt="3月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>ピンクベビーふく</td>
+                <td>回避率2%・防御力+3</td></tr>
+                <tr><td>首装備</td>
+                <td>まえかけ</td>
+                <td>防御力+3</td></tr>
+                <tr><td>腕装備</td>
+                <td>ガーデンミトン</td>
+                <td>火耐性+1・やけど耐性+2</td></tr>
+                <tr><td>背中装備</td>
+                <td>ようせいのはね</td>
+                <td>浮遊・最大AP+11</td></tr>
+                <tr><td>足装備</td>
+                <td>うわばき</td>
+                <td>氷耐性+2・防御力+5</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">桃なので良い。顔厳選にでも</td></tr>
+                </table>
+            <img src="images/moisu.jpg" class="img" alt="3月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>ブルーベビーふく</td>
+                <td>回避率2%・防御力+3</td></tr>
+                <tr><td>首装備</td>
+                <td>まえかけ</td>
+                <td>防御力+3</td></tr>
+                <tr><td>腕装備</td>
+                <td>ドクターてぶくろ</td>
+                <td>+ねむり・+突然死</td></tr>
+                <tr><td>背中装備</td>
+                <td>ようせいのはね</td>
+                <td>浮遊・最大AP+11</td></tr>
+                <tr><td>足装備</td>
+                <td>うわばき</td>
+                <td>氷耐性+2・防御力+5</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">顔厳選にでも</td></tr>
+                </table>
+            <img src="images/kira.jpg" class="img" alt="3月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>首装備</td>
+                <td>まえかけ</td>
+                <td>防御力+3</td></tr>
+                <tr><td>腕装備</td>
+                <td>ゴムてぶくろ</td>
+                <td>電気耐性+1・かんでん耐性+2</td></tr>
+                <tr><td>背中装備</td>
+                <td>ようせいのはね</td>
+                <td>浮遊・最大AP+11</td></tr>
+                <tr><td>足装備</td>
+                <td>うわばき</td>
+                <td>氷耐性+2・防御力+5</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">顔厳選ry</td></tr>
+                </table>
+        <div id="4gatu"></div>
+        <p>4月/スプリングイベント</p>
+            <img src="images/hikari.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>いっちょうら</td>
+                <td>おたから+0.50倍・最大AP+4</td></tr>
+                <tr><td>顔装備</td>
+                <td>きいろいぼうし</td>
+                <td>オート防御・水耐性+1</td></tr>
+                <tr><td>背中装備</td>
+                <td>ランドセル</td>
+                <td>経験値+0.10倍・最大AP+8</td></tr>
+                <tr><td>足装備</td>
+                <td>うわばき</td>
+                <td>氷耐性+2・防御力+5</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">弱い()</td></tr>
+                </table>
+            <img src="images/haruka.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>じょがくせいのふく</td>
+                <td>こうふん・誘惑3%</td></tr>
+                <tr><td>首装備</td>
+                <td>がくせいのリボン</td>
+                <td>激レア+0.50倍</td></tr>
+                <tr><td>背中装備</td>
+                <td>チェックスカート</td>
+                <td>誘惑3%・必中</td></tr>
+                <tr><td>足装備</td>
+                <td>ソックス</td>
+                <td>激レア+0.50倍・しもやけ耐性+2</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">顔素材、背中の必中がやや使えるくらいか</td></tr>
+                </table>
+            <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>スーツ</td>
+                <td>全属性耐性+1・防御力+18</td></tr>
+                <tr><td>顔装備</td>
+                <td>みどりのめがね</td>
+                <td>風耐性+1</td></tr>
+                <tr><td>首装備</td>
+                <td>ネクタイ</td>
+                <td>素早さ+2</td></tr>
+                <tr><td>腕装備</td>
+                <td>やすいとけい</td>
+                <td>誘惑耐性+2・攻撃力+5</td></tr>
+                <tr><td>背中装備</td>
+                <td>ビジネスバッグ</td>
+                <td>素早さ+4・防御力+20</td></tr>
+                <tr><td>足装備</td>
+                <td>かわぐつ</td>
+                <td>電気耐性+1・防御力+6</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">薄桃最速と優秀</td></tr>
+                </table>
+            <img src="images/karenn.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>首装備</td>
+                <td>えんぴつけずり</td>
+                <td>+突然死・対突然死+3</td></tr>
+                <tr><td>腕装備</td>
+                <td>2Bえんぴつ</td>
+                <td>特技+0.10倍・シールド無視</td></tr>
+                <tr><td>背中装備</td>
+                <td>じゆうちょう</td>
+                <td>経験値+0.20倍・防御力+25</td></tr>
+                <tr><td>足装備</td>
+                <td>ホチキス</td>
+                <td>毒ボディ・トゲトゲ</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">腕が強いです。顔素材にも</td></tr>
+                </table>
+            <img src="images/keisuke.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>リクルートスーツ</td>
+                <td>全属性耐性+1・全状態異常耐性+1</td></tr>
+                <tr><td>顔装備</td>
+                <td>しちさんわけ</td>
+                <td>クリティカル20%</td></tr>
+                <tr><td>首装備</td>
+                <td>しゃいんしょう</td>
+                <td>必中・防御力+24</td></tr>
+                <tr><td>腕装備</td>
+                <td>めいし</td>
+                <td>ふうかく+1・攻撃力+20</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">首では珍しい必中装備、腕の風格も地味にいい。</td></tr>
+                </table>
+            <img src="images/haruto.png" class="img" alt="4月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>顔装備</td>
+                <td>ヘッドホン</td>
+                <td>+ねむり・全状態異常耐性+1</td></tr>
+                <tr><td>首装備</td>
+                <td>スマホ</td>
+                <td>電気耐性+3・最大AP+15</td></tr>
+                <tr><td>背中装備</td>
+                <td>ノートパソコン</td>
+                <td>電気属性+0.10倍・感電ボディ</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">首が電気レレパで使えるくらい、顔は何かに使えそう</td></tr>
+                </table>
+            <div id="5gatu"></div>
+            <p>5月/ゴールデンウィークイベント</p>
+            <img src="images/momo.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>じんばおり</td>
+                <td>ほかく+0.60倍・素早さ+5</td></tr>
+                <tr><td>顔装備</td>
+                <td>ももたろう</td>
+                <td>ほかく+0.50倍・回避率+5%</td></tr>
+                <tr><td>背中装備</td>
+                <td>にほんいちののぼり</td>
+                <td>回復効果+2.00倍・ターゲット</td></tr>
+                <tr><td>足装備</td>
+                <td>ぞうり</td>
+                <td>マヒ耐性+1・素早さ+4</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">装備は弱いが桃最速捕獲とかなり優秀、ウサギよりもオススメ</td></tr>
+                </table>
+            <img src="images/kinntaro.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>あかいはらかけ</td>
+                <td>攻撃力+10・最大HP+20</td></tr>
+                <tr><td>顔装備</td>
+                <td>きんたろう</td>
+                <td>誘惑耐性+3・攻撃力+10</td></tr>
+                <tr><td>腕装備</td>
+                <td>ちからのうでわ</td>
+                <td>攻撃力+4</td></tr>
+                <tr><td>背中装備</td>
+                <td>まさかり</td>
+                <td>逆ギレ・攻撃力+10</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">装備は弱いが金の素材として良い。</td></tr>
+                </table>
+            <img src="images/musasi.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>服装備</td>
+                <td>むしゃのよろい</td>
+                <td>こんじょう・防御力+10</td></tr>
+                <tr><td>顔装備</td>
+                <td>むしゃのまえだて</td>
+                <td>カウンター・防御力+10</td></tr>
+                <tr><td>腕装備</td>
+                <td>むしゃのこて</td>
+                <td>攻撃力+10・防御力+10</td></tr>
+                <tr><td>背中装備</td>
+                <td>のだち</td>
+                <td>クリティカル10%・攻撃力+5</td></tr>
+                <tr><td>足装備</td>
+                <td>むしゃのぐそく</td>
+                <td>素早さ+10・防御力+10</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">銀素材としてギリ使えるくらい</td></tr>
+                </table>
+            <img src="images/syou.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>顔装備</td>
+                <td>キャップ</td>
+                <td>風耐性+2・防御力+20</td></tr>
+                <tr><td>首装備</td>
+                <td>すいとう</td>
+                <td>水攻撃・HP自動回復8%</td></tr>
+                <tr><td>背中装備</td>
+                <td>リュック</td>
+                <td>かばう30%・防御力+15</td></tr>
+                <tr><td>足装備</td>
+                <td>スニーカー</td>
+                <td>防御力+20・素早さ+15</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">背中のかばうが強い</td></tr>
+                </table>
+            <img src="images/haruna.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>首装備</td>
+                <td>むしよけスプレー</td>
+                <td>対虫+0.10倍・虫ガード10%</td></tr>
+                <tr><td>腕装備</td>
+                <td>バスケット</td>
+                <td>ほかく+1.00倍</td></tr>
+                <tr><td>背中装備</td>
+                <td>レジャーシート</td>
+                <td>虫ガード15%・床ダメージ無</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">多分最大の皆強くなれでバンの次に良い。</td></tr>
+                </table>
+            <img src="images/hibiki.png" class="img" alt="5月イベキャ">
+                <div class="table1">
+                <table border="1">
+                <tr><td>顔装備</td>
+                <td>カンカンぼう</td>
+                <td>光耐性+2・ブラインド耐性+3</td></tr>
+                <tr><td>腕装備</td>
+                <td>ガイドブック</td>
+                <td>とくぎ+0.10倍・最大AP+15</td></tr>
+                <tr><td>背中装備</td>
+                <td>キャリーケース</td>
+                <td>回復効果+1.30倍・HP自動回復8%</td></tr>
+                <tr><td>足装備</td>
+                <td>サンダル</td>
+                <td>対虫+0.10倍・素早さ+15</td></tr>
+                <tr><td>備考</td>
+                <td colspan="3">桃桃だが雑柄、素材としては使いづらい</td></tr>
+                </table>
+            <div id="6gatu"></div>
+                <p>6月/梅雨イベント</p>
+                <img src="images/aiko.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>服装備</td>
+                    <td>しろウェディング</td>
+                    <td>HP自動回復8%・光耐性+1</td></tr>
+                    <tr><td>顔装備</td>
+                    <td>ウェディングベール</td>
+                    <td>全状態異常耐性+1・光耐性+1</td></tr>
+                    <tr><td>首装備</td>
+                    <td>ウェディングネックレス</td>
+                    <td>ゴールド+0.10倍・誘惑3%</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>しろいグローブ</td>
+                    <td>光攻撃・闇耐性+1</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>しろいスカート</td>
+                    <td>にげる+10%・光耐性+1</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">顔素材くらい。</td></tr>
+                    </table>
+                <img src="images/zyo-.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>服装備</td>
+                    <td>きんのタキシード</td>
+                    <td>ゴールド+0.10倍・防御力+20</td></tr>
+                    <tr><td>首装備</td>
+                    <td>よくみえのリボン</td>
+                    <td>ブラインド耐性+2</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>きぞくのそで</td>
+                    <td>誘惑耐性+2・攻撃力+6</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>あかいバラ</td>
+                    <td>誘惑3%</td></tr>
+                    <tr><td>足装備</td>
+                    <td>ドレスシューズ</td>
+                    <td>素早さ+5・レア+0.50倍</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">雑柄だけど金橙ハート。うまく単色にしたい</td></tr>
+                    </table>
+                <img src="images/reira.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>服装備</td>
+                    <td>あおいウェディング</td>
+                    <td>AP自動回復2・氷耐性+1</td></tr>
+                    <tr><td>顔装備</td>
+                    <td>ティアラ</td>
+                    <td>AP自動回復2・光耐性+1</td></tr>
+                    <tr><td>首装備</td>
+                    <td>ウェディングネックレス</td>
+                    <td>ゴールド+0.10倍・誘惑3%</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>あおいグローブ</td>
+                    <td>氷攻撃・火耐性+1</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>あおいスカート</td>
+                    <td>にげる+10%・氷耐性+1</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">単純に弱い</td></tr>
+                    </table>
+                <img src="images/aoko.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>顔装備</td>
+                    <td>あおあじさいかざり</td>
+                    <td>AP自動回復2・最大AP+15</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>あおあじさいリング</td>
+                    <td>HP吸収・+ねむり</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>あおあじさいパンツ</td>
+                    <td>水属性+0.10倍・最大HP+35</td></tr>
+                    <tr><td>足装備</td>
+                    <td>あおあじさいのくつ</td>
+                    <td>AP節約5%・最大AP+10</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">顔素材()</td></tr>
+                    </table>
+                <img src="images/gamonn.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>顔装備</td>
+                    <td>あまつぶのおうかん</td>
+                    <td>水属性+0.10倍・水耐性+2</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>カエルのてぶくろ</td>
+                    <td>水攻撃・+毒</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>はっぱのかさ</td>
+                    <td>幻10%・回避率+10%</td></tr>
+                    <tr><td>足装備</td>
+                    <td>カエルのあし</td>
+                    <td>受け流し5%・素早さ+5</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">弱いよー</td></tr>
+                    </table>
+                    <img src="images/teruru.png" class="img" alt="6月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>顔装備</td>
+                    <td>てるてるのかお</td>
+                    <td>HP吸収・+みずびたし</td></tr>
+                    <tr><td>首装備</td>
+                    <td>てるてるケープ</td>
+                    <td>耐霊1.10倍・対魔0.10倍</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>てるてるマント</td>
+                    <td>水生ガード10%・水耐性+3</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">うーん…ｗ</td></tr>
+                    </table>
+                    <div id="6gatu"></div>
+                <p>7月/アニバーサリーイベント</p>
+                <img src="images/bann.png" class="img" alt="7月イベキャ">
+                    <div class="table1">
+                    <table border="1">
+                    <tr><td>服装備</td>
+                    <td>しろウェディング</td>
+                    <td>HP自動回復8%・光耐性+1</td></tr>
+                    <tr><td>顔装備</td>
+                    <td>ウェディングベール</td>
+                    <td>全状態異常耐性+1・光耐性+1</td></tr>
+                    <tr><td>首装備</td>
+                    <td>ウェディングネックレス</td>
+                    <td>ゴールド+0.10倍・誘惑3%</td></tr>
+                    <tr><td>腕装備</td>
+                    <td>しろいグローブ</td>
+                    <td>光攻撃・闇耐性+1</td></tr>
+                    <tr><td>背中装備</td>
+                    <td>しろいスカート</td>
+                    <td>にげる+10%・光耐性+1</td></tr>
+                    <tr><td>備考</td>
+                    <td colspan="3">バンはAP増加量がバグって最終的にハートより多くなるので旅で強いです。</td></tr>
+                    </table>
+    
+            
+
+
+
+        
+        
+                <div id="page_top"><a href="#"></a></div>
             </div>
         </div>
         </p>
