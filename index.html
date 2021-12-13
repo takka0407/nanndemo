@@ -7,13 +7,15 @@
 </head>
 
     <body onload="LoadProc();">
-           <div id="ibennto"></div>
+
 
     <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <div id="ibennto"></div>
     <div class="koe1">
         このサイトはWikiを見やすくしたりその他の役立つ情報をまとめたものです。
         ぜひご活用ください。
         </div>
+    
 
 <!--CSS-->
     <style>
@@ -85,28 +87,36 @@ transform: rotate(30deg);
 <script>
 
 
-function LoadProc() {
+window.onload = function(){
         var now = new Date();
-        var Weeks = now.getDate () ;
-        var Week = weeks.getDay() ;	// 曜日(数値)
-            if (Week == 0) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 1) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 2) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 3) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 4) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 5) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
-            } else if (Week == 6) {
-                document.getElementById("ibennto").innerHTML = "攻撃力と防御力は入力しないでOKです。";
+        var day = now.getDate () ;
+        var youbi = now.getDay() ;
+        console.log( youbi );
+            if (youbi == 0) {
+                document.getElementById("ibennto").innerHTML = "今日は経験値ゲットの日です。";
+            } else if (youbi == 1) {
+                document.getElementById("ibennto").innerHTML = "今日はブーストゲットの日です。";
+            } else if (youbi == 2) {
+                document.getElementById("ibennto").innerHTML = "今日は経験値ゲットの日です。";
+            } else if (youbi == 3) {
+                document.getElementById("ibennto").innerHTML = "今日は何もない日です。";
+            } else if (youbi == 4) {
+                document.getElementById("ibennto").innerHTML = "今日はブーストゲットの日です。";
+            } else if (youbi == 5) {
+                document.getElementById("ibennto").innerHTML = "今日は経験値ゲットの日です。";
+            } else if (youbi == 6) {
+                document.getElementById("ibennto").innerHTML = "今日はブーストゲットの日です。";
+            } else if (day == 1) {
+                document.getElementById("ibennto").innerHTML = "今日はプチジュエルゲットの日です。忘れないように！";
             }
+
     };
+
+function getDayAndCount(date){
+  return {day: date.getDay(), count: Math.floor((date.getDate() - 1) / 7) + 1};
+}
 </script>
-<div id="ibennto"></div>
+
 
    <ul>
     <li><a href="taikaku.html">体格を知りたい方へ</a></li>
