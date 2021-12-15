@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>電波人間お役立ちサイト</title>
+</head>
+
+    <body onload="LoadProc();">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <h1 div class="title">電波人間お役立ちサイト</h1></div>
+
+    
+
+<!--CSS-->
+    <style>
+    @media screen and (max-width:480px) {
+        .title{font-size:large
+        }
+        #kekka{
+            font-size:large
+        }
+        .elm {
+            display: none;
+            position: left;
+            background: #f8f8f8;
+            border: 1px solid #999;
+            width: 50px;
+            font-size:24px;
+            line-height:5pt;
+}
+    .img {
+        width : 50vw ; 
+        display: flex;
+    }
+
+    }
+    @media screen and (min-width:481px) {
+        #kekka{
+            font-size: xx-large;
+        }
+        .img {
+        width : 50vw ; 
+        max-width: 280px;
+
+    }
+    .window {
+	width: 90vw;
+	max-width: 640px;
+	height: 200px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+    }
+
+    .title {
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+    }
+    #kaihi3tyuui{
+        color: crimson;
+        font-size: large;
+    }
+    #kekka{
+        color: blue;
+        border: solid 3px #364e96;/*線色*/
+        padding: 0.5em;/*文字周りの余白*/
+        border-radius: 0.5em;/*角丸*/
+    }
+    .koe1 {
+position: relative;
+padding: 20px;
+background-color: #42acdd;
+color: #fff;
+border-radius: 10px;
+}
+
+.koe1:before {
+content: "";
+position: absolute;
+display: block;
+width: 30px;
+height: 30px;
+bottom: -10px; left: 20px;
+margin-left: 0;
+background-color: #42acdd;
+border-radius: 0 50px 0 50px;
+z-index: -1;
+}
+
+.koe1:after {
+content: "";
+position: absolute;
+display: block;
+width: 30px;
+height: 30px;
+bottom: -5px; left: 30px;
+margin-left: 0;
+background-color: #fff;
+border-radius: 0 50px 0 50px;
+z-index: -1;
+transform: rotate(30deg);
+}
+.elm {
+    display: none;
+    position: absolute;
+    background: #f8f8f8;
+    border: 1px solid #999;
+    padding: 5px;
+    width: 350px;
+}
+.open {
+	cursor:pointer; 
+}
+#popup {
+	display: none;
+}
+.overlay {
+	display: none;
+}
+#popup:checked + .overlay {
+	display: block;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+.window {
+	width: 90vw;
+	max-width: 380px;
+	height: 200px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.text {
+	font-size: 12px;
+	margin: 0;
+	color: #000000;
+}
+.close {
+	cursor:pointer;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font-size: 20px;
+}
+</style>
+<script>
+
+
+    $(document).on({
+    "mouseenter": function () {
+        var offset = $(this).offset();
+        $($(this).attr("href")).show().css({
+            left: offset.left + 200,
+            top: offset.top - 15
+        });
+    },"mouseleave": function () {
+        $($(this).attr("href")).hide();
+    }
+}, ".popup");
+
+
+
+</script>
+
+
+シールド無視
+<table border="1"><td rowspan="3">顔装備</td>
+    <tr><td><label class="open" for="popup" href="#01" class="popup">グリフォンサークレット</a></td>
+    <input type="checkbox" id="popup">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="popup">×</label>
+            <img src="images/gurisaku.jpg" class="img" alt="グリフォンサークレット">
+            <p class="text">特技数+1・シールド無視</p>
+            <p>正月福袋</p>
+        </div>
+    </div>
+    </tr><tr><td><label class="open" for="popup" href="#02" class="popup">グレートホーン</a></td>
+        <input type="checkbox" id="popup">
+        <div class="overlay">
+            <div class="window">
+                <label class="close" for="popup">×</label>
+                <img src="images/gureho.jpg" class="img" alt="グレートホーン">
+                <p class="text">全状態異常耐性+3・シールド無視</p>
+                <p>ジュエル購入者特典(10J)</p>
+            </div>
+        </div>
+</table>
+
+
+
+<div id="01" class="elm">
+    <p>シールド無視・特技数+1</p>
+    <p>正月福袋</p>
+</div>
+<div id="02" class="elm">
+    <p>シールド無視・全状態異常耐性+3</p>
+    <p>ジュエル購入者特典(10J)</p>
+</div>
+
+

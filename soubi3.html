@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>電波人間お役立ちサイト</title>
+</head>
+
+    <body onload="LoadProc();">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <h1 div class="title">電波人間お役立ちサイト</h1></div>
+
+    
+
+<!--CSS-->
+    <style>
+    @media screen and (max-width:480px) {
+        .title{font-size:large
+        }
+        .elm {
+            display: none;
+            position: left;
+            background: #f8f8f8;
+            border: 1px solid #999;
+            width: 50px;
+            font-size:24px;
+            line-height:5pt;
+}
+    .img {
+        width : 90vw ; 
+        max-width: 380px;
+    }
+    .text{
+        font-size:24px;
+        margin: 0;
+	    color: #000000;
+    }
+
+    }
+    @media screen and (min-width:481px) {
+        .img {
+        max-width: 380px;
+    }
+    .text{
+        font-size:24px;
+        margin: 0;
+	    color: #000000;
+    }
+    .window {
+	width: 90vw;
+	max-width: 720px;
+	height: 400px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+
+	justify-content: center;
+	align-items: center;
+	position: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+    }
+
+    .title {
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+    }
+.elm {
+    display: none;
+    position: absolute;
+    background: #f8f8f8;
+    border: 1px solid #999;
+    padding: 5px;
+    width: 350px;
+}
+.open {
+	cursor:pointer; 
+}
+#a1,#a2,#a3,#a4,#a5,#a6,#a7,#a8,#a9,#a10{
+    display: none;
+}
+.overlay {
+	display: none;
+}
+#a1:checked + .overlay ,#a2:checked + .overlay,#a3:checked + .overlay,#a4:checked + .overlay,#a5:checked + .overlay,#a6:checked + .overlay,#a7:checked + .overlay{
+	display: block;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+
+.window {
+	width: 90vw;
+	max-width: 380px;
+	height: 400px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.close {
+	cursor:pointer;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font-size: 20px;
+}
+</style>
+<script>
+
+
+    $(document).on({
+    "mouseenter": function () {
+        var offset = $(this).offset();
+        $($(this).attr("href")).show().css({
+            left: offset.left + 200,
+            top: offset.top - 15
+        });
+    },"mouseleave": function () {
+        $($(this).attr("href")).hide();
+    }
+}, ".popup");
+
+
+
+</script>
+<a href="index.html">ホームへ戻る</a><br>
+
+シールド無視
+<table border="1"><td rowspan="2">服装備</td>
+    <tr><td><label class="open" for="a1" href="#01" class="popup">エンジェル</a></label></td></tr>
+    <input type="checkbox" id="a1">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a1">×</label>
+            <img src="images/ennjeru.jpg" class="img" alt="エンジェル">
+            <p class="text">ゴールド+0.30倍・シールド無視</p>
+            <p class="text">復活の帝王/金の奥歯の激レア</p>
+        </div>
+    </div>
+</table>
+<table border="1"><td rowspan="7">顔装備</td>
+    <tr><td><label class="open" for="a2" href="#02" class="popup">グリフォンサークレット</a></label></td></tr>
+    <input type="checkbox" id="a2">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a2">×</label>
+            <img src="images/gurisaku.jpg" class="img" alt="グリフォンサークレット">
+            <p class="text">特技数+1・シールド無視</p>
+            <p class="text">正月福袋</p>
+        </div>
+    </div>
+    <tr><td><label class="open" for="a3" href="#03" class="popup">グレートホーン</a></label></td></tr>
+    <input type="checkbox" id="a3">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a3">×</label>
+            <img src="images/gureho.jpg" class="img" alt="グレートホーン">
+            <p class="text">全状態異常耐性+3・シールド無視</p>
+            <p class="text">ジュエル購入者特典(10J)</p>
+        </div>
+    </div>
+    <tr><td><label class="open" for="a4" href="#04" class="popup">アイスドラゴンのつの</a></label></td></tr>
+    <input type="checkbox" id="a4">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a4">×</label>
+            <img src="images/aisudoragonntuno.jpg" class="img" alt="アイスドラゴンのつの">
+            <p class="text">氷耐性+4・シールド無視</p>
+            <p class="text">星5リサイクル</p>
+        </div>
+    </div>
+    <tr><td><label class="open" for="a5" href="#05" class="popup">プテラのくちばし</a></label></td></tr>
+    <input type="checkbox" id="a5">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a5">×</label>
+            <img src="images/puteranokutibasi.jpg" class="img" alt="プテラのくちばし">
+            <p class="text">攻撃力+35・シールド無視</p>
+            <p class="text">コレクターズブティック</p>
+        </div>
+    </div>
+    <tr><td><label class="open" for="a6" href="#06" class="popup">そうじょうのめん</a></label></td></tr>
+    <input type="checkbox" id="a6">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a6">×</label>
+            <img src="images/soujounomenn.jpg" class="img" alt="そうじょうのめん">
+            <p class="text">風耐性+3・シールド無視</p>
+            <p class="text">モンスターコロシアム</p>
+        </div>
+    </div>
+    <tr><td><label class="open" for="a7" href="#07" class="popup">トレジャーハット</a></label></td></tr>
+    <input type="checkbox" id="a7">
+    <div class="overlay">
+        <div class="window">
+            <label class="close" for="a7">×</label>
+            <img src="images/toreja-hatto.jpg" class="img" alt="トレジャーハット">
+            <p class="text">回避率+6%・シールド無視</p>
+            <p class="text">電波人間コロシアム(2月)</p>
+        </div>
+    </div>
+
+</table>
