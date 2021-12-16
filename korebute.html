@@ -10,17 +10,27 @@
 
 <!--CSS-->
     <style>
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:720px) {
         .title{font-size:large
         }
-        #kekka{
-            font-size:large
+        #korebute{
+            width: 96vw;
+        }
+        #korebute2{
+            display: none;
         }
     }
-    @media screen and (min-width:481px) {
-        #kekka{
-            font-size: xx-large;
+    @media screen and (min-width:720px) {
+
+        #korebute{
+            display: none !important;
+            width: 50vw;
         }
+        #korebute2 {
+            width: 99vw; 
+            display: block !important;
+        }
+
     }
 
     .title {
@@ -30,19 +40,13 @@
         border-left: solid 5px #7db4e6;/*左線*/
         border-bottom: solid 3px #d7d7d7;/*下線*/
     }
-    #kaihi3tyuui{
-        color: crimson;
-        font-size: large;
-    }
-    #kekka{
-        color: blue;
-        border: solid 3px #364e96;/*線色*/
-        padding: 0.5em;/*文字周りの余白*/
-        border-radius: 0.5em;/*角丸*/
-    }
+
     </style>
         <a href="index.html">ホームへ戻る</a><br>
         <p>コレクターズブティック</p>
+        <img src="images/korebute.png" id="korebute" alt="コレクターズブティックオススメ表"><br>
+        <img src="images/korebute2.jpg" id="korebute2" alt="コレクターズブティックオススメ表"><br>
+        <p>その他の月別コレブテ内容</p>
     <ul>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%BA%E3%83%96%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF#corebu2" class="btn">3月</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%BA%E3%83%96%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF#corebu3" class="btn">5月</a></li>

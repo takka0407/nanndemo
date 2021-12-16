@@ -121,6 +121,54 @@ h2{
   margin: auto;
   text-align: center;
 }
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
 </style>
         <a href="index.html">ホームへ戻る</a><br>
         <p>よく聞かれる装備一覧</p>
@@ -194,7 +242,7 @@ h2{
         <td>ジュエル購入者特典(30個以上)</td></tr>
         <tr><td>350まんのふく</td>
         <td>全属性耐性+3・攻撃+0.35倍</td>
-        <td>期間中チェックイン特典</td></tr>
+        <td>過去の期間中チェックイン特典</td></tr>
         <tr><td>きんぱくのよろい</td>
         <td>5人攻撃・素早さ+25</td>
         <td>電波人間コロシアム/8月/ランク5</td></tr>
@@ -204,6 +252,25 @@ h2{
         <tr><td>ダークエルフのふく</td>
         <td>全状態異常耐性+3・受け流し15%</td>
         <td>黄金くじ/復活する力</td></tr>
+        <tr><td>スターダスト</td>
+        <td>AP節約+10%・最大AP+60</td>
+        <td>電波人間コロシアム(2月/10月)</td></tr>
+        <tr><td>エジプシャン</td>
+        <td>全属性耐性+3・全状態異常耐性+2</td>
+        <td>メイン14の商人</td></tr>
+        <tr><td>タンクトップ</td>
+        <td>全属性耐性+2・全状態異常耐性+3</td>
+        <td>メイン20の商人</td></tr>
+        <tr><td>エンジェル</td>
+        <td>シールド無視・ゴールド+0.30倍</td>
+        <td>復活の帝王/金の奥歯の激レア</td></tr>
+        <tr><td>エメラルドのはタイツ</td>
+        <td>経験値+0.30倍・にげる+8%</td>
+        <td>メイン27/エメラルドのはの激レア</td></tr>
+        <tr><td>ルビーのはタイツ</td>
+        <td>ゴールド+0.30倍・にげる+8%</td>
+        <td>メイン27/ルビーのはの激レア</td></tr>
+
         </table>
 
         <div id="kao"></div>
