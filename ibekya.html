@@ -45,31 +45,27 @@ jQuery(function() {
         .title{font-size:large
         }
         .img {
-        width : 100vw ; 
+        width : 95vw ; 
+
         display: flex;
         flex-direction: column;
         align-items: flex-start;  
     }
+
 }
-    @media screen and (min-width:641px) {
+    @media screen and (min-width:640px) {
 
     .img {
-        width : 50vw ; 
-        max-width: 50%;
+        width : 80vw ; 
+        max-width: 80%;
         display: flex;
         flex-direction: column;
         align-items: flex-start; 
-
     }
-}
-    @media screen and (min-width:960px) {
-
-    .img {
-        width : 40vw ; 
-        max-width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; 
+    .pc {
+        width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
     }
 }
     .title {
@@ -123,10 +119,24 @@ h2{
   margin: auto;
   text-align: center;
 }
+.box3{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
 
     </style>
+    <div class="pc">
         <a href="index.html">ホームへ戻る</a><br>
         <p>イベントキャッチ</p>
+        <div class="box3">
         <ul>
             <li><a href="ibekya.html#tuyoi" class="btn">オススメのイベキャ(個体)</a></li> 
             <li><a href="ibekya.html#tuyoi2" class="btn">オススメのイベキャ(装備)</a></li> 
@@ -143,6 +153,7 @@ h2{
             <li><a href="ibekya.html#11gatu" class="btn">11月</a></li> 
             <li><a href="ibekya.html#12gatu" class="btn">12月</a></li> 
         </ul>
+        </div>
         <div id="tuyoi"></div>
         <p>オススメのイベキャ(個体)</p>
         <p>4月/ビシット/オススメ度☆☆☆☆</p>
@@ -1817,7 +1828,8 @@ h2{
             </table>
                 <div id="page_top"><a href="#"></a></div>
             </div>
-        </div>
+            </div>
+    </div>
         </p>
 
 

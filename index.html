@@ -10,8 +10,10 @@
 
 
     <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <div class="box2">
     <div id="ibennto"></div>
     <div id="ibennto2"></div>
+    </div>
     <div class="koe1">
         このサイトはWikiを見やすくしたりその他の役立つ情報をまとめたものです。
         ぜひご活用ください。
@@ -43,7 +45,7 @@
 
     .koe1 {
 position: relative;
-padding: 20px;
+padding: 10px;
 background-color: #42acdd;
 color: #fff;
 border-radius: 10px;
@@ -97,6 +99,30 @@ transform: rotate(30deg);
     margin: 0; 
     padding: 0;
 }
+.box2{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
+.box3{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
 </style>
 <script>
 
@@ -125,27 +151,27 @@ window.onload = function(){
             }
 
              if (month == 0) {
-                document.getElementById("ibe").innerHTML = "今月は1月です。福袋が始まります。";
+                document.getElementById("ibe").innerHTML = "今月は1月です。福袋や神経衰弱が始まります。幻帝のどうくつも始まります。";
             } else if (month == 1) {
-                document.getElementById("ibe").innerHTML = "今月は2月です。イベントキャッチでは「ランジュ」がいます。釣りチャレンジでは出生だけが手に入ります。電コロでは「サバイバルゴーグル」が手に入ります。";
+                document.getElementById("ibe").innerHTML = "今月は2月です。イベントキャッチでは「ランジュ」が出ます。釣りチャレンジでは出生だけが手に入ります。電コロでは「サバイバルゴーグル」が手に入ります。";
             } else if (month == 2) {
-                document.getElementById("ibe").innerHTML = "今月は3月です。コレブテがあります";
+                document.getElementById("ibe").innerHTML = "今月は3月です。コレブテでビームガンなどが手に入ります。";
             } else if (month == 3) {
-                document.getElementById("ibe").innerHTML = "今月は4月です。釣りチャレンジでは出生だけが手に入ります。";
+                document.getElementById("ibe").innerHTML = "今月は4月です。釣りチャレンジでは出生だけが手に入ります。幻帝のどうくつも始まります。";
             } else if (month == 4) {
-                document.getElementById("ibe").innerHTML = "今月は5月です。コレブテがあります。";
+                document.getElementById("ibe").innerHTML = "今月は5月です。イベントキャッチでは「モモ」が出ます。コレブテではニンジャやレトリバーのしっぽなどが手に入ります。。";
             } else if (month == 5) {
                 document.getElementById("ibe").innerHTML = "今月は6月です。釣りチャレンジでは出生だけが手に入ります。";
             } else if (month == 6) {
-                document.getElementById("ibe").innerHTML = "今月は7月です。イベントキャッチでは「ミスター」や「バン」「アニー」が手に入ります";
+                document.getElementById("ibe").innerHTML = "今月は7月です。福袋が始まります。イベントキャッチでは「ミスター」や「バン」「アニー」が手に入ります。幻帝のどうくつも始まります。";
             } else if (month == 7) {
                 document.getElementById("ibe").innerHTML = "今月は8月です。電コロでは「らいきり」が手に入ります。釣りチャレンジでは出生だけが手に入ります。";
             } else if (month == 8) {
-                document.getElementById("ibe").innerHTML = "今月は9月です。コレブテがあります。";
+                document.getElementById("ibe").innerHTML = "今月は9月です。コレブテではドラグーンブーツなどが手に入ります。。";
             } else if (month == 9) {
-                document.getElementById("ibe").innerHTML = "今月は10月です。釣りチャレンジでは出生だけが手に入ります。";
+                document.getElementById("ibe").innerHTML = "今月は10月です。釣りチャレンジでは出生だけが手に入ります。幻帝のどうくつも始まります。";
             } else if (month == 10) {
-                document.getElementById("ibe").innerHTML = "今月は11月です。コレブテがあります。";
+                document.getElementById("ibe").innerHTML = "今月は11月です。コレブテではしろロリチョーカーやスノボブーツなどが手に入ります。。";
             } else if (month == 11) {
                 document.getElementById("ibe").innerHTML = "今月は12月です。連バトで「よいやみのこうら」が手に入ります。釣りチャレンジでは出生だけにドリタケ、電コロではこうてつロケットや巨人シリーズが手に入ります。イベントキャッチでは「ミサ」も手に入ります。";
             }
@@ -161,7 +187,7 @@ function getDayAndCount(date){
 }
 </script>
 
-
+<div class="box3">
    <ul>
     <li><a href="taikaku.html">体格を知りたい方へ</a></li>
     <li><a href="soubi.html">装備の効果が知りたい方へ</a></li>
@@ -174,6 +200,7 @@ function getDayAndCount(date){
     <li><a href="gesotei.html">幻帝のどうくつ</a></li>
     <li><a href="sonota.html">その他の役立つ情報</a></li>
 </ul>
+</div>
 
 
 
