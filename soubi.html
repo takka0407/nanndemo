@@ -7,22 +7,139 @@
 </head>
 <body>
     <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+    <script>
+        jQuery(function() {
+            var appear = false;
+            var pagetop = $('#page_top');
+            $(window).scroll(function () {
+              if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
+                if (appear == false) {
+                  appear = true;
+                  pagetop.stop().animate({
+                    'right': '0px' //右から0pxの位置に
+                  }, 300); //0.3秒かけて現れる
+                }
+              } else {
+                if (appear) {
+                  appear = false;
+                  pagetop.stop().animate({
+                    'right': '-50px' //右から-50pxの位置に
+                  }, 300); //0.3秒かけて隠れる
+                }
+              }
+            });
+            pagetop.click(function () {
+              $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
+              return false;
+            });
+          });
 
+
+
+/*
+highlight v5
+Highlights arbitrary terms.
+<https://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html>
+MIT license.
+Johann Burkard
+<https://johannburkard.de>
+<mailto:jb@eaio.com>
+*/
+jQuery.fn.highlight = function(pat) {
+function innerHighlight(node, pat) {
+var skip = 0;
+if (node.nodeType == 3) {
+var pos = node.data.toUpperCase().indexOf(pat);
+pos -= (node.data.substr(0, pos).toUpperCase().length - node.data.substr(0, pos).length);
+if (pos >= 0) {
+var spannode = document.createElement('span');
+spannode.className = 'highlight';
+var middlebit = node.splitText(pos);
+var endbit = middlebit.splitText(pat.length);
+var middleclone = middlebit.cloneNode(true);
+spannode.appendChild(middleclone);
+middlebit.parentNode.replaceChild(spannode, middlebit);
+skip = 1;
+}
+}
+else if (node.nodeType == 1 && node.childNodes && !/(script|style)/i.test(node.tagName)) {
+for (var i = 0; i < node.childNodes.length; ++i) {
+i += innerHighlight(node.childNodes[i], pat);
+}
+}
+return skip;
+}
+return this.length && pat && pat.length ? this.each(function() {
+innerHighlight(this, pat.toUpperCase());
+}) : this;
+};
+jQuery.fn.removeHighlight = function() {
+return this.find("span.highlight").each(function() {
+this.parentNode.firstChild.nodeName;
+with (this.parentNode) {
+replaceChild(this.firstChild, this);
+normalize();
+}
+}).end();
+};
+</script>
+<!-- Highlight & 最初の文字へスクロール -->
+<script>
+function doHighlight() {
+var word = $("#word").val()
+.replace(/^\s+|\s+$/g, "")
+.replace(/\s+/g, " ")
+.split(" ");
+for (i in word) {
+if (word[i] != "") {
+$("#target").removeHighlight();
+$("#target").highlight(word[i]);
+var ypos = $(".highlight").offset().top;
+window.scrollTo({
+left: 0,
+top: ypos,
+behavior: "smooth"
+});
+}
+}
+}
+        </script>
 <!--CSS-->
     <style>
-    @media screen and (max-width:480px) {
+    @media screen and (max-width:640px) {
         .title{font-size:large
         }
-        #kekka{
-            font-size:large
-        }
+        .img {
+        width : 100vw ; 
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;  
     }
-    @media screen and (min-width:481px) {
-        #kekka{
-            font-size: xx-large;
-        }
-    }
+}
+    @media screen and (min-width:641px) {
 
+    .img {
+        width : 50vw ; 
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+
+    }
+}
+    @media screen and (min-width:960px) {
+
+    .img {
+        width : 40vw ; 
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+}
     .title {
         padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
         color: #494949;/*文字色*/
@@ -31,6 +148,101 @@
         border-bottom: solid 3px #d7d7d7;/*下線*/
     }
 
+    .table1 th, .table1 td{
+	border: 1px solid #aaa;
+	padding:4px;
+	writing-mode: horizontal-tb;	
+	height:25px;	
+}
+h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: -50px;
+  bottom: 50px;
+  background: #ef3f40;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.highlight{
+font-weight:bold;
+background-color:Yellow;
+}
     </style>
         <a href="index.html">ホームへ戻る</a><br>
         <p>装備の効果を知りたいけどスクロールするのが面倒な人はページ内検索が楽です！PCの人はF3キー</p>
@@ -44,8 +256,640 @@
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%9B%E3%81%AA%E3%81%8B%E3%81%9D%E3%81%86%E3%81%B3" class="btn">せなか装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%82%E3%81%97%E3%81%9D%E3%81%86%E3%81%B3" class="btn">あし装備</a></li>
 </ul>        
-        <a href="soubi2.html" class="btn">よく聞かれる装備をまとめました</a><br>
+     
         <a href="https://wikiwiki.jp/youtonfree/%E4%BB%98%E5%8A%A0%E5%8A%B9%E6%9E%9C%28%E8%A3%85%E5%82%99%29" class="btn">装備の効果から逆算もできます</a><br>
         <a href="soubi3.html" class="btn">↑の簡略版です。追加効果も分かります。</a><br>
+
+        <p>よく聞かれる装備一覧</p>
+        <ul>
+            <li><a href="soubi2.html#huku" class="btn">ふく装備</a></li> 
+            <li><a href="soubi2.html#kao" class="btn">かお装備</a></li> 
+            <li><a href="soubi2.html#kubi" class="btn">くび装備</a></li> 
+            <li><a href="soubi2.html#ude" class="btn">うで装備</a></li> 
+            <li><a href="soubi2.html#senaka" class="btn">せなか装備</a></li> 
+            <li><a href="soubi2.html#asi" class="btn">あし装備</a></li>
+        </ul>
+        <form name="highlight">
+          <input type="text" id="word" placeholder="ページ内テキスト検索" /> <input type="button" onclick="doHighlight()" value="検索" /> <input type="reset" name="reset" id="reset" value="リセット"> <input name="ページリセット" type="button" value="ページリセット" onClick="location.reload(true);"/>
+          </form>
+          <!-- ハイライトのターゲットとする範囲 - 開始 -->
+          <div id="target">
+        <p>リサイクルで出るもののみレア度を追記しています。</p>
+        <div id="huku"></div>
+        <p>服装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆7/にゅうしタイツ</td>
+        <td>全属性耐性+3・全状態異常耐性+3</td>
+        <td>星7リサイクル・コレクターズブティック(3月/7J)</td></tr>
+        <tr><td>☆6/ふうきいいんのふく</td>
+        <td>全状態異常耐性+3・風格+3</td>
+        <td>メイン18クリア後のジュエルショップ(3J)</td></tr>
+        <tr><td>☆6/ジャスティスメイル</td>
+        <td>全属性耐性+3・全状態異常耐性+3</td>
+        <td>メイン18クリア後のジュエルショップ(4J)</td></tr>
+        <tr><td>☆7/けんしタイツ</td>
+        <td>攻撃数+1・全属性耐性+1</td>
+        <td>けんしの激レア(メイン14or経ゲ超級など)</td></tr>
+        <tr><td>☆8/きょうせんしのよろい</td>
+        <td>攻撃数+1・攻撃力+40</td>
+        <td>復活の帝王/セピアバーサーカーの激レア</td></tr>
+        <tr><td>☆7/ナンバーワン</td>
+        <td>攻撃数+1・防御力+1</td>
+        <td>達人への火の試練/イフリートの激レア</td></tr>
+        <tr><td>☆7/ヘルのふく</td>
+        <td>攻撃数+1・魔ガード5%</td>
+        <td>メイン15・ヘルライダーの激レア</td></tr>
+        <tr><td>☆7/マスターローブ</td>
+        <td>攻撃数+1・回避率+8%</td>
+        <td>モンスターコロシアム/ぶたばなダークロード</td></tr>
+        <tr><td>☆7/くろチャイナふく</td>
+        <td>攻撃数+1・回避率+7%</td>
+        <td>黄金くじ/因縁の試練</td></tr>
+        <tr><td>グリフォンコート</td>
+        <td>全状態異常耐性+4・風属性+0.40倍</td>
+        <td>正月福袋</td></tr>
+        <tr><td>サムライのふく</td>
+        <td>素早さ+50・恐怖+7%</td>
+        <td>正月福袋</td></tr>
+        <tr><td>☆4/ニンジャ</td>
+        <td>加速・回避率+2%</td>
+        <td>コレクターズブティック(5月)</td></tr>
+        <tr><td>☆4/あかいはっぴ</td>
+        <td>加速・火耐性+2</td>
+        <td>コレクターズブティック(5月/1J)</td></tr>
+        <tr><td>フェンシングジャケット</td>
+        <td>全属性耐性+4・素早さ+15</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>☆7/まぼろしのよろい</td>
+        <td>素早さ+30・AP節約+10%</td>
+        <td>星7リサイクル</td></tr>
+        <tr><td>ケルベロスのふく</td>
+        <td>攻撃+0.80倍・風格+4</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>フェニックスコート</td>
+        <td>全属性耐性+3・HP自動回復+12%</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>ユニコーンのふく</td>
+        <td>全状態異常耐性+3・誘惑+7%</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>マーメイドドレス</td>
+        <td>全属性耐性+4・誘惑+7%</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>☆7/はかいおうのうろこ</td>
+        <td>全属性耐性+2・風格+4</td>
+        <td>神竜の試練(青宝箱)・星7リサイクル</td></tr>
+        <tr><td>ヴィランアーマー</td>
+        <td>全属性耐性+4・ぜんガード+15%</td>
+        <td>ジュエル購入者特典(540個以上)</td></tr>
+        <tr><td>グレートスーツ</td>
+        <td>全属性耐性+3・必中</td>
+        <td>ジュエル購入者特典(30個以上)</td></tr>
+        <tr><td>350まんのふく</td>
+        <td>全属性耐性+3・攻撃+0.35倍</td>
+        <td>過去の期間中チェックイン特典</td></tr>
+        <tr><td>☆7/きんぱくのよろい</td>
+        <td>5人攻撃・素早さ+25</td>
+        <td>電波人間コロシアム/8月/ランク5</td></tr>
+        <tr><td>☆7/250まんスーツ</td>
+        <td>全属性耐性+2・特技+0.25倍</td>
+        <td>コレクターズブティック(5月/4J)</td></tr>
+        <tr><td>☆9/ダークエルフのふく</td>
+        <td>全状態異常耐性+3・受け流し15%</td>
+        <td>黄金くじ/復活する力</td></tr>
+        <tr><td>☆6/しろくろドット</td>
+        <td>全状態異常耐性+2・幻+15%</td>
+        <td>復活の帝王/茶宝箱</td></tr>
+        <tr><td>☆5/しろナースふく</td>
+        <td>全状態異常耐性+2・HP自動回復+12%</td>
+        <td>電波人間コロシアム/12月/ランク4</td></tr>
+        <tr><td>☆7/スターダスト</td>
+        <td>AP節約+10%・最大AP+60</td>
+        <td>電波人間コロシアム(2月/10月)</td></tr>
+        <tr><td>☆8/エジプシャン</td>
+        <td>全属性耐性+3・全状態異常耐性+2</td>
+        <td>メイン14の商人</td></tr>
+        <tr><td>☆6/タンクトップ</td>
+        <td>全属性耐性+2・全状態異常耐性+3</td>
+        <td>メイン20の商人</td></tr>
+        <tr><td>☆7/くじゃくのじんばおり</td>
+        <td>風属性+0.30倍・風格+2</td>
+        <td>星7リサイクル</td></tr>
+        <tr><td>☆2/エンジェル</td>
+        <td>シールド無視・ゴールド+0.30倍</td>
+        <td>復活の帝王/金の奥歯の激レア</td></tr>
+        <tr><td>☆7/エメラルドのはタイツ</td>
+        <td>経験値+0.30倍・にげる+8%</td>
+        <td>メイン27/エメラルドのはの激レア</td></tr>
+        <tr><td>☆7/ルビーのはタイツ</td>
+        <td>ゴールド+0.30倍・にげる+8%</td>
+        <td>メイン27/ルビーのはの激レア</td></tr>
+
+        </table>
+
+        <div id="kao"></div>
+        <p>顔装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆6/サバイバルゴーグル</td>
+        <td>全状態異常耐性+3・素早さ+25</td>
+        <td>電波人間コロシアム/2月/ランク5</td></tr>
+        <tr><td>ちょんまげ</td>
+        <td>全属性耐性+3・風格+4</td>
+        <td>正月福袋</td></tr>
+        <tr><td>ヴィランマスク</td>
+        <td>全状態異常耐性+3・クリティカル70%</td>
+        <td>ジュエル購入者特典(720個以上)</td></tr>
+        <tr><td>イエティフード</td>
+        <td>全属性耐性+4・恐怖+4%</td>
+        <td>正月福袋</td></tr>
+        <tr><td>☆8/ダークエルフのマスク</td>
+        <td>誘惑耐性+9・まぼろし+25%</td>
+        <td>黄金くじ/復活する力</td></tr>
+        <tr><td>☆6/くろぬりのかぶと</td>
+        <td>全状態異常耐性+2・攻撃+0.40倍</td>
+        <td>黄金くじ/復活の帝王</td></tr>
+        <tr><td>☆6/カオスクラウン</td>
+        <td>全状態異常耐性+2・恐怖+7%</td>
+        <td>メイン20クリア後のジュエルショップにて(4J)</td></tr>
+        <tr><td>☆6/コンバットゴーグル</td>
+        <td>全属性耐性+2・反射50%</td>
+        <td>黄金くじ/修羅の試練</td></tr>
+        <tr><td>ゆめいろドラゴンのつの</td>
+        <td>全状態異常耐性+4・誘惑+4%</td>
+        <td>福袋</td></tr>
+        <tr><td>☆5/ザリガニマスク</td>
+        <td>全状態異常耐性+3・水耐性+3</td>
+        <td>釣りチャレンジ(7月)</td></tr>
+        <tr><td>マーメイドティアラ</td>
+        <td>全状態異常耐性+4・水属性+0.40倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>ユニコーンのつの</td>
+        <td>AP節約+20%・光属性+0.40倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>グリフォンサークレット</td>
+        <td>特技数+1・シールド無視</td>
+        <td>正月福袋</td></tr>
+        <tr><td>フェニックスヘルム</td>
+        <td>全状態異常耐性+4・回復効果+2.00倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>グレートホーン</td>
+        <td>全状態異常耐性+3・シールド無視</td>
+        <td>ジュエル購入者特典(10J)</td></tr>
+        <tr><td>☆7/はかいおうのつの</td>
+        <td>全状態異常耐性+1・光属性+0.40倍</td>
+        <td>神竜の試練/しんはかいりゅうの激レア</td></tr>
+        <tr><td>☆7/きょじんのつの</td>
+        <td>全状態異常耐性+3・逆ギレ</td>
+        <td>電波人間コロシアム/12月/ランク5</td></tr>
+        <tr><td>☆6/ナースキャップ</td>
+        <td>全状態異常耐性+3・最大AP+27</td>
+        <td>電波人間コロシアム/6月/ランク4</td></tr>
+        <tr><td>フェンサーガード</td>
+        <td>全状態異常耐性+4</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>ジャシンのつの</td>
+        <td>闇属性+0.40倍・風格+4</td>
+        <td>メイン30初回クリア報酬</td></tr>
+        <tr><td>☆7こんじきのいっかく</td>
+        <td>電気属性+0.40倍・誘惑耐性+4</td>
+        <td>電光石火の試練/マグナムホーンの激レア</td></tr>
+        <tr><td>プレミアムクラウン</td>
+        <td>耐霊1.50倍・風格+4</td>
+        <td>ジュエル購入者特典(1170個以上)</td></tr>
+        </table>
+
+        <div id="kubi"></div>
+        <p>首装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆5/オランジュロゼット</td>
+        <td>加速・誘惑+3%</td>
+        <td>イベントキャッチ(2月/ランジュ)</td></tr>
+        <tr><td>☆7/マスターのしょうごう</td>
+        <td>加速・闇属性+0.40倍</td>
+        <td>神速の試練/ぶたばなダークロードの激レア</td></tr>
+        <tr><td>☆7/コンバットストール</td>
+        <td>全状態異常耐性+2・対霊1.30倍</td>
+        <td>黄金くじ/神速の試練</td></tr>
+        <tr><td>☆7/ゆうしゃのもんしょう</td>
+        <td>全状態異常耐性+2・風格+2</td>
+        <td>星7リサイクル</td></tr>
+        <tr><td>☆6/しんぴのネクタイ</td>
+        <td>全状態異常耐性+1・風格+2</td>
+        <td>メイン25の茶宝箱</td></tr>        
+        <tr><td>☆6/めんえきのマフラー</td>
+        <td>全状態異常耐性+2・最大AP+30</td>
+        <td>星5リサイクル・電波人間コロシアム/6・12月/ランク4</td></tr>
+        <tr><td>しろロリペンダント</td>
+        <td>全状態異常耐性+2・最大AP+30</td>
+        <td>コレクターズブティック(11月/2J)</td></tr>
+        <tr><td>☆7/じょおうのもんしょう</td>
+        <td>特技数+1・特技+0.30倍</td>
+        <td>守護する者/クイーンの激レア</td></tr>
+        <tr><td>☆7/おうのもんしょう</td>
+        <td>光属性+0.35倍・風格+3</td>
+        <td>守護する者/キングの激レア</td></tr>
+        <tr><td>☆7/そうじょうのもんしょう</td>
+        <td>電気属性+0.30倍・AP節約+10%</td>
+        <td>守護する者/ビショップの激レア</td></tr>
+        <tr><td>☆4/ヌンチャク</td>
+        <td>一撃必殺・+マヒ</td>
+        <td>電波人間コロシアム/4・10月/ランク5</td></tr>
+        <tr><td>☆7/きょじんのくびわ</td>
+        <td>攻撃+0.40倍・攻撃力+50</td>
+        <td>電波人間コロシアム/12月/ランク5</td></tr>
+        <tr><td>☆7/ゴーレムのくびわ</td>
+        <td>攻撃+0.40倍・逆ギレ</td>
+        <td>連続バトルチャレンジ/アルマゴーレム</td></tr>
+        <tr><td>☆5/めざましのネクタイ</td>
+        <td>ねむり耐性+3</td>
+        <td>メイン16のショップ</td></tr>
+        <tr><td>☆5/ふうきバッジ</td>
+        <td>全属性耐性+2・風格+1</td>
+        <td>メイン18クリア後のジュエルショップ(1J)</td></tr>
+        <tr><td>☆8/ダークエルフのまもり</td>
+        <td>全属性耐性+2・まぼろし+25%</td>
+        <td>黄金くじ/復活する力</td></tr>
+        <tr><td>☆5/せんすいけい</td>
+        <td>+ねむり・対霊1.25倍</td>
+        <td>電波人間コロシアム/8月/ランク5</td></tr>
+        <tr><td>☆5/パティシエスカーフ</td>
+        <td>AP節約10%・最大AP節約+30</td>
+        <td>イベントキャッチ(2月/ガトー)</td></tr>
+        <tr><td>☆5/ももいろスカーフ</td>
+        <td>反射30%・シールド無視</td>
+        <td>電波人間コロシアム/4・12月/ランク3</td></tr>
+        <tr><td>☆7/きんのヌンチャク</td>
+        <td>クリティカル40%。素早さ+20</td>
+        <td>黄金くじ/因縁の試練</td></tr>
+        <tr><td>サムライのごふ</td>
+        <td>まぼろし+50%・対突然死+5</td>
+        <td>正月福袋</td></tr>
+        <tr><td>ゆめいろドラゴンかざり</td>
+        <td>あくガード+15%・風格+4</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>ヴィランマフラー</td>
+        <td>ゴースト化70%・風格+5</td>
+        <td>ジュエル購入者特典(810個以上)</td></tr>
+        <tr><td>ワンダーバッジ</td>
+        <td>最大AP+50・風格+3</td>
+        <td>チェックイン特典(400日以上)</td></tr>
+        <tr><td>グレートプレート</td>
+        <td>誘惑耐性+7・対突然死+7</td>
+        <td>チェックイン特典(200日以上)</td></tr>
+        <tr><td>ケルベロスチョーカー</td>
+        <td>クリティカル60%・一撃必殺</td>
+        <td>過去の福袋</td></tr>
+        </table>
+
+        <div id="ude"></div>
+        <p>腕装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆7/クリティカルグラブ</td>
+        <td>クリティカル70%</td>
+        <td>冒険者への火の試練/ヒートマンモスの激レア</td></tr>
+        <tr><td>☆8/クリティカルグラブ+</td>
+        <td>攻撃+0.25倍・クリティカル70%</td>
+        <td>目覚めし老兵/しゃくねつマンモスの激レア</td></tr>
+        <tr><td>グレートグローブ</td>
+        <td>攻撃+0.50倍・クリティカル70%</td>
+        <td>ジュエル購入者特典(90個以上)</td></tr>
+        <tr><td>☆9/ダークエルフのこて</td>
+        <td>特技数+1・特技+0.10倍</td>
+        <td>黄金くじ/妖精の宝</td></tr>
+        <tr><td>☆9/くろぬりのこて</td>
+        <td>攻撃数+1・クリティカル40%</td>
+        <td>黄金くじ/新たな化身</td></tr>
+        <tr><td>☆6/ふうきのカフス</td>
+        <td>風格+3・攻撃+0.30倍</td>
+        <td>メイン18クリア後のジュエルショップにて(3J)</td></tr>
+        <tr><td>☆8/えいゆうガントレット</td>
+        <td>受け流し15%・幻+27%</td>
+        <td>ジュエルショップ(9J)</td></tr>
+        <tr><td>☆8/サンニーグローブ</td>
+        <td>ダメージ32</td>
+        <td>守護する者/宝箱・ジュエルショップ</td></tr>
+        <tr><td>☆8/コンバットグローブ</td>
+        <td>攻撃+0.40倍・特技+0.40倍</td>
+        <td>黄金くじ/神速の試練</td></tr>
+        <tr><td>☆4/ハチくんのはり</td>
+        <td>クリティカル50%・+猛毒</td>
+        <td>コレクターズブティック(3月)</td></tr>
+        <tr><td>☆8/ゆうしゃのうでわ</td>
+        <td>火属性+0.35倍・電気属性+0.35倍</td>
+        <td>星8リサイクル</td></tr>
+        <tr><td>びゃくうせん</td>
+        <td>特技数+1・最大AP+80</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>そうこうけん</td>
+        <td>クリティカル60%・素早さ+30</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>ミサンガ</td>
+        <td>回避率+20%・まぼろし+30%</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>グリフォンクロー</td>
+        <td>クリティカル60%・+マヒ</td>
+        <td>正月福袋</td></tr>
+        <tr><td>ケルベロスパペット</td>
+        <td>攻撃数+1・闇属性+0.40倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>ユニコーンのやり</td>
+        <td>3人攻撃・クリティカル70%</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>フェニックスグローブ</td>
+        <td>特技数+1・火属性+0.40倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>キリンのてこう</td>
+        <td>攻撃+1.00倍・カウンター</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>サムライのこて</td>
+        <td>攻撃数+1・3人攻撃</td>
+        <td>正月福袋</td></tr>
+        <tr><td>フルーレ</td>
+        <td>クリティカル70%・カウンター</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>☆6/すいりゅうのつめ</td>
+        <td>+ねむり・3人攻撃</td>
+        <td>メイン28/ウォータードラゴンの激レア</td></tr>
+        <tr><td>☆7/ヘルクロー</td>
+        <td>クリティカル50%・火属性+0.40倍</td>
+        <td>冥界の試練/ネオアビスのレア</td></tr>
+        <tr><td>☆7/サバイバルグローブ</td>
+        <td>攻撃+0.40倍・シールド無視</td>
+        <td>電波人間コロシアム/2月/ランク5</td></tr>
+        <tr><td>☆6/ウェイトレスのそで</td>
+        <td>3人攻撃・必中</td>
+        <td>電波人間コロシアム/4月/ランク3</td></tr>
+        <tr><td>ラブリーバトン</td>
+        <td>特技+0.30倍・最大AP+45</td>
+        <td>コレクターズブティック(3月/5J)</td></tr>
+        <tr><td>☆7/ひょうがのつめ</td>
+        <td>氷属性+0.30倍・シールド無視</td>
+        <td>連続バトルチャレンジ/ヘイルパンサー</td></tr>
+        <tr><td>☆8/きんぱくのこて</td>
+        <td>受け流し15%。クリティカル45%</td>
+        <td>電波人間コロシアム/8月/ラセツ8人衆</td></tr>
+        <tr><td>☆4/2Bえんぴつ</td>
+        <td>特技+0.10倍・シールド無視</td>
+        <td>イベントキャッチ/4月/カレン</td></tr>
+        <tr><td>☆6/ズールのしょくしゅ</td>
+        <td>+マヒ・必中</td>
+        <td>メイン19/ズールのレア</td></tr>
+        <tr><td>ワンダーグローブ</td>
+        <td>受け流し30%・攻撃数+1</td>
+        <td>ジュエル購入者特典(450個以上)</td></tr>
+        <tr><td>☆7/らいじんのこて</td>
+        <td>電気属性+0.35倍・電攻撃</td>
+        <td>雷神の塔/ライジーンの激レア</td></tr>
+        <tr><td>☆6/こうせんじゅう</td>
+        <td>シールド無視・対霊1.40倍</td>
+        <td>電波人間コロシアム/6月/ランク5</td></tr>
+        <tr><td>☆6/ほういじしん</td>
+        <td>AP節約+10%・最大AP+30</td>
+        <td>電波人間コロシアム/4・10月/ランク4</td></tr>
+        <tr><td>☆7/マイク</td>
+        <td>特技+0.30倍・クリティカル30%</td>
+        <td>電波人間コロシアム/4・12月/ランク3</td></tr>
+        <tr><td>☆6/しばいぬのにくきゅう</td>
+        <td>攻撃+0.30倍・必中</td>
+        <td>コレクターズブティック(11月/3J)</td></tr>
+        </table>
+
+        <div id="senaka"></div>
+        <p>背中装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆6/こうてつロケット</td>
+        <td>全状態異常耐性+3・最大HP+150</td>
+        <td>電波人間コロシアム/12月/ランク3</td></tr>
+        <tr><td>☆5/みがわりくん</td>
+        <td>かばう50%・最大HP+16</td>
+        <td>冒険者への電気の試練/ペンギンバイキングの激レア</td></tr>
+        <tr><td>☆7/よいやみのこうら</td>
+        <td>かばう40%・全属性耐性+2</td>
+        <td>連続バトルチャレンジ/12月/よいやみのかめ</td></tr>
+        <tr><td>☆7/ナイトのたて</td>
+        <td>かばう25%・攻撃+0.20倍</td>
+        <td>メイン14/ねずみみナイトの激レア</td></tr>
+        <tr><td>☆6/ミラーシールド</td>
+        <td>かばう25%・反射40%</td>
+        <td>メイン15/ミラーアーマーの激レア</td></tr>
+        <tr><td>☆4/トゲトゲガード</td>
+        <td>かばう20%・トゲトゲ</td>
+        <td>目覚めし老兵/トゲトゲボーイの激レア</td></tr>
+        <tr><td>☆4/たて</td>
+        <td>かばう30%・防御力+5</td>
+        <td>イベントキャッチ(7月/マルオ)・コレクターズブティック(5月)</td></tr>
+        <tr><td>☆6/しにがみのかま</td>
+        <td>ゴースト化75%</td>
+        <td>駆け出し者への闇の試練/あんこくきとうしの激レア</td></tr>
+        <tr><td>☆7/おやあひる</td>
+        <td>特技+0.50倍・AP自動回復4</td>
+        <td>福引き(7～9月)</td></tr>
+        <tr><td>☆7/まぼろしのやり</td>
+        <td>特技数+1・必中</td>
+        <td>星7リサイクル</td></tr>
+        <tr><td>☆7/かいじゅうのしっぽ</td>
+        <td>攻撃数+1</td>
+        <td>達人への土の試練/だいちのりゅうの激レア</td></tr>
+        <tr><td>☆8/えいゆうのマント</td>
+        <td>特技数+1・シールド無視</td>
+        <td>ジュエルショップ(12J)</td></tr>
+        <tr><td>☆8/ジュエリーミラー</td>
+        <td>反射100%・誘惑耐性+6</td>
+        <td>ジュエルショップ(20J)</td></tr>
+        <tr><td>グレートウィング</td>
+        <td>5人攻撃・反射100%</td>
+        <td>ジュエル購入者特典(180個以上)</td></tr>
+        <tr><td>☆7/しっこくのたてがみ</td>
+        <td>ゴースト化50%・まぼろし+20%</td>
+        <td>連続バトルチャレンジ/オニキスホース</td></tr>
+        <tr><td>☆8/ジャシンのしっぽ</td>
+        <td>攻撃数+1・対ぜん+0.20倍</td>
+        <td>最後の試練/ジャシンパーフェクトの激レア</td></tr>
+        <tr><td>プレミアムシャイン</td>
+        <td>ゴースト化70%・クリティカル70%</td>
+        <td>ジュエル購入者特典(1530個以上)</td></tr>
+        <tr><td>レトリバーのしっぽ</td>
+        <td>素早さ+30。回避率+8%</td>
+        <td>コレクターズブティック(5月/3J)</td></tr>
+        <tr><td>ちゃトラのしっぽ</td>
+        <td>素早さ+30。回避率+8%</td>
+        <td>コレクターズブティック(5月/4J)</td></tr>
+        <tr><td>☆7/はちぶおんぷ</td>
+        <td>特技+0.30倍・シールド無視</td>
+        <td>福引き(3～5月)</td></tr>
+        <tr><td>☆7/たんか</td>
+        <td>まぼろし+20%・HP自動回復+12%</td>
+        <td>電波人間コロシアム/2月/ランク4</td></tr>
+        <tr><td>☆7/かいてんとう</td>
+        <td>素早さ+25・ほかく+2.00倍</td>
+        <td>幻帝のどうくつ・真</td></tr>
+        <tr><td>☆5/サバイバルポーチ</td>
+        <td>必中・+マヒ</td>
+        <td>電波人間コロシアム/2月/ランク5</td></tr>
+        <tr><td>☆5/ひょうがのしっぽ</td>
+        <td>素早さ+20・シールド無視</td>
+        <td>連続バトルチャレンジ/ヘイルパンサー</td></tr>
+        <tr><td>ビームガン</td>
+        <td>光属性+0.40倍・シールド無視</td>
+        <td>コレクターズブティック(3月/3J)</td></tr>
+        <tr><td>サムライソード</td>
+        <td>攻撃+0.50倍・クリティカル50%</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>ほうてんがげき</td>
+        <td>攻撃数+1・一撃必殺</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>せいこうけん</td>
+        <td>かばう50%・受け流し25%</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>じゃぼう</td>
+        <td>攻撃+0.80倍・+猛毒</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>せいりゅうえんげつとう</td>
+        <td>5人攻撃・攻撃+0.50倍</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>ゆめいろドラゴンのはね</td>
+        <td>5人攻撃・+ねむり</td>
+        <td>正月福袋</td></tr>
+        <tr><td>メタルジャケット</td>
+        <td>光属性+0.40倍・風格+4</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>バスケットパンツ</td>
+        <td>ゴースト化70%・攻撃+0.30倍</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>ラグビーパンツ</td>
+        <td>火属性+0.40倍・クリティカル70%</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>マーメイドパレオ</td>
+        <td>最大AP+100・受け流し30%</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>☆7/とうしんのたち</td>
+        <td>水属性+0.40倍・クリティカル40%</td>
+        <td>修羅の試練/ゲソパラディンの激レア</td></tr>
+        <tr><td>☆8/ヘルウィング</td>
+        <td>5人攻撃・恐怖2%</td>
+        <td>メイン20/アビスの激レア</td></tr>
+        <tr><td>☆8/あくのしっぽ</td>
+        <td>攻撃数+1・闇属性+0.20倍</td>
+        <td>メイン15/あくのいきものの激レア</td></tr>
+        <tr><td>☆7/イビルドラゴンのはね</td>
+        <td>3人攻撃・耐霊1.35倍</td>
+        <td>メイン13/イビルドラゴンの激レア</td></tr>
+        <tr><td>☆7/ドラゴンのはね</td>
+        <td>5人攻撃・浮遊</td>
+        <td>達人への闇の試練/あんこくりゅうの激レア</td></tr>
+        </table>
+
+        <div id="asi"></div>
+        <p>足装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>装備名
+        <th>効果
+        <th>主な入手方法
+        </th>
+        <tr><td>☆7/きょじんのあし</td>
+        <td>かばう40%・耐霊1.20倍</td>
+        <td>電波人間コロシアム/12月/ランク5</td></tr>
+        <tr><td>☆8/ジャシンのあし</td>
+        <td>風格+5・ぜんガード15%</td>
+        <td>メイン30/ジャシンの激レア</td></tr>
+        <tr><td>☆8/カオスレッグ</td>
+        <td>全状態異常耐性+2・ゴースト化50%</td>
+        <td>メイン20クリア後のジュエルショップにて(7J)</td></tr>
+        <tr><td>☆5/ふうきいいんシューズ</td>
+        <td>全状態異常耐性+1・加速</td>
+        <td>メイン18クリア後のジュエルショップにて(1J)</td></tr>
+        <tr><td>☆5/ジャスティスレッグ</td>
+        <td>かばう40%・こんじょう</td>
+        <td>メイン18クリア後のジュエルショップにて(1J)</td></tr>
+        <tr><td>☆6/しろいとらのあし</td>
+        <td>加速・AP節約+10%</td>
+        <td>電波人間コロシアム/4月/ランク5</td></tr>
+        <tr><td>☆6/かいじゅうのあし</td>
+        <td>全属性耐性+1・オート防御</td>
+        <td>達人への水の試練/すいりゅうの激レア</td></tr>
+        <tr><td>☆3/スノボブーツ</td>
+        <td>必中・シールド無視</td>
+        <td>コレクターズブティック(11月/2J)</td></tr>
+        <tr><td>グレートブーツ</td>
+        <td>ゴースト化70%・回避率+10%</td>
+        <td>チェックイン特典(300日以上)</td></tr>
+        <tr><td>ラグビーシューズ</td>
+        <td>全属性耐性+3・全状態異常耐性+3</td>
+        <td>レジェンド福袋</td></tr>
+        <tr><td>スイムフィン</td>
+        <td>素早さ+30・加速</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>でんせつのブーツ</td>
+        <td>素早さ+18・加速</td>
+        <td>メイン8クリア報酬</td></tr>
+        <tr><td>☆5/せんすいブーツ</td>
+        <td>全状態異常耐性+2・防御力+17</td>
+        <td>電波人間コロシアム/8月/ランク5</td></tr>
+        <tr><td>☆7/でんきのブーツ</td>
+        <td>電気属性+0.30倍</td>
+        <td>電波人間コロシアム/6月/ランク5</td></tr>
+        <tr><td>☆6/トレジャーブーツ</td>
+        <td>土属性+0.30倍・素早さ+22</td>
+        <td>電波人間コロシアム/2月/ランク4</td></tr>
+        <tr><td>☆6/サファリシューズ</td>
+        <td>水属性+0.30倍・全属性耐性+1</td>
+        <td>電波人間コロシアム/4・10月/ランク4</td></tr>
+        <tr><td>ゆめいろドラゴンのあし</td>
+        <td>まぼろし+30%・受け流し20%</td>
+        <td>正月福袋</td></tr>
+        <tr><td>ドラグーンブーツ</td>
+        <td>火属性+0.30倍・浮遊</td>
+        <td>コレクターズブティック(9月/4J)</td></tr>
+        <tr><td>バスケットシューズ</td>
+        <td>素早さ+50・浮遊</td>
+        <td>スポーツ福袋</td></tr>
+        <tr><td>ユニコーンのくつ</td>
+        <td>素早さ+50・激レア+4.00倍</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>ケルベロスアンク</td>
+        <td>素早さ+50・闇攻撃</td>
+        <td>過去の福袋</td></tr>
+        <tr><td>プリティなあし</td>
+        <td>全状態異常耐性+3・誘惑耐性+8</td>
+        <td>チェックイン特典(900日以上)</td></tr>
+        <tr><td>りゅうきしのくつ</td>
+        <td>回避率+20%・幻+50%</td>
+        <td>チェックイン特典(2000日以上)</td></tr>
+        <tr><td>グリフォンアンク</td>
+        <td>風格+4・+かぜっぴき</td>
+        <td>正月福袋</td></tr>
+        <tr><td>ようせいさんのくつ</td>
+        <td>最大AP+80・にげる+20%</td>
+        <td>過去のイベントキャッチ</td></tr>
+        </table>
+      </div>
+      <!-- ハイライトのターゲットとする範囲 - 終了 -->
+        <div id="page_top"><a href="#"></a></div>
+
     </body>
     </html>
