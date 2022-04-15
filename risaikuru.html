@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>電波人間お役立ちサイト</title>
+</head>
+<body>
+    <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+    <script>
+        jQuery(function() {
+            var appear = false;
+            var pagetop = $('#page_top');
+            $(window).scroll(function () {
+              if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
+                if (appear == false) {
+                  appear = true;
+                  pagetop.stop().animate({
+                    'right': '0px' //右から0pxの位置に
+                  }, 300); //0.3秒かけて現れる
+                }
+              } else {
+                if (appear) {
+                  appear = false;
+                  pagetop.stop().animate({
+                    'right': '-50px' //右から-50pxの位置に
+                  }, 300); //0.3秒かけて隠れる
+                }
+              }
+            });
+            pagetop.click(function () {
+              $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
+              return false;
+            });
+          });
+        </script>
+<!--CSS-->
+    <style>
+    @media screen and (max-width:640px) {
+        .title{font-size:large
+        }
+        .img {
+        width : 100vw ; 
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;  
+    }
+}
+    @media screen and (min-width:641px) {
+
+    .img {
+        width : 50vw ; 
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+
+    }
+}
+    @media screen and (min-width:960px) {
+
+    .img {
+        width : 40vw ; 
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+}
+    .title {
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+    }
+
+    .table1 th, .table1 td{
+	border: 1px solid #aaa;
+	padding:4px;
+	writing-mode: horizontal-tb;	
+	height:25px;	
+}
+h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: -50px;
+  bottom: 50px;
+  background: #ef3f40;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+table{
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.highlight{
+font-weight:bold;
+background-color:Yellow;
+}
+    </style>
+        <a href="index.html">ホームへ戻る</a><br>
+<p>リサイクルレア度別当たりアイテム</p>
+        <div id="huku"></div>
+        <p>服装備</p>
+        <div class="table1">
+        <table border="1">
+        <tr><th>レア度
+        <th>装備名
+        <th>効果
+        </th>
+        <tr><td>☆2</td>
+        <td>エンジェル</td>
+        <td>シールド無視・ゴールド+0.30倍</td></tr>
+        <tr><td>☆3</td>
+        <td>スノボブーツ</td>
+        <td>シールド無視・必中</td></tr>
+        <tr><td>☆4</td>
+        <td>ヌンチャク</td>
+        <td>+マヒ・一撃必殺</td></tr>
+        <tr><td>☆4</td>
+        <td>ニンジャ</td>
+        <td>加速・回避率+2%</td></tr>
+        <tr><td>☆4</td>
+        <td>あかいはっぴ</td>
+        <td>加速・火耐性+2</td></tr>
+        <tr><td>☆4</td>
+        <td>ハチくんのはり</td>
+        <td>クリティカル50%・+猛毒</td></tr>
+        <tr><td>☆4</td>
+        <td>2Bえんぴつ</td>
+        <td>特技1.10倍・シールド無視</td></tr>
+        <tr><td>☆4</td>
+        <td>トゲトゲガード</td>
+        <td>かばう20%・トゲトゲ</td></tr>
+        <tr><td>☆4</td>
+        <td>たて</td>
+        <td>かばう30%・防御力+5</td></tr>
