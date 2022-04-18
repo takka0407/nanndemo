@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>電波人間お役立ちサイト</title>
+</head>
+<body>
+    <h1 div class="title">電波人間お役立ちサイト</h1></div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<!--JS-->
+<script>
+jQuery(function() {
+    var appear = false;
+    var pagetop = $('#page_top');
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
+        if (appear == false) {
+          appear = true;
+          pagetop.stop().animate({
+            'right': '0px' //右から0pxの位置に
+          }, 300); //0.3秒かけて現れる
+        }
+      } else {
+        if (appear) {
+          appear = false;
+          pagetop.stop().animate({
+            'right': '-50px' //右から-50pxの位置に
+          }, 300); //0.3秒かけて隠れる
+        }
+      }
+    });
+    pagetop.click(function () {
+      $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
+      return false;
+    });
+  });
+</script>
+
+<!--CSS-->
+    <style>
+    @media screen and (max-width:640px) {
+        .title{font-size:large
+        }
+        .img {
+        width : 95vw ; 
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;  
+    }
+
+}
+    @media screen and (min-width:640px) {
+
+    .img {
+        width : 80vw ; 
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+    .pc {
+        width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
+    }
+}
+    .title {
+        padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: #f4f4f4;/*背景色*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        border-bottom: solid 3px #d7d7d7;/*下線*/
+    }
+
+    .table1 th, .table1 td{
+	border: 1px solid #aaa;
+	padding:4px;
+	writing-mode: horizontal-tb;	
+	height:25px;	
+}
+h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+#page_top{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: -50px;
+  bottom: 50px;
+  background: #ef3f40;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+.box3{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
+
+    </style>
+    <div class="pc">
+        <a href="index.html">ホームへ戻る</a><br>
+        <p>プレイヤー名一覧(無許可)</p>
+        <div class="box3">
+        <ul>
+            <li><a href="player.html#gatipa" class="btn">現在確認できたガチパ</a></li> 
+            <li><a href="player.html#agyou" class="btn">あ行</a></li> 
+            <li><a href="player.html#kagyou" class="btn">か行</a></li> 
+            <li><a href="player.html#sagyou" class="btn">さ行</a></li> 
+            <li><a href="player.html#tagyou" class="btn">た行</a></li> 
+            <li><a href="player.html#nagyou" class="btn">な行</a></li> 
+            <li><a href="player.html#hagyou" class="btn">は行</a></li> 
+            <li><a href="player.html#magyou" class="btn">ま行</a></li> 
+            <li><a href="player.html#yagyou" class="btn">や行</a></li> 
+            <li><a href="player.html#ragyou" class="btn">ら行</a></li> 
+            <li><a href="player.html#wagyou" class="btn">わ行</a></li> 
+            <li><a href="player.html#sonota" class="btn">その他</a></li> 
+        </ul>
+        </div>
+        <div id="gatipa"></div>
+        <p>2022年4月現在確認できたガチパ</p>
+        <p>キリンさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>#キリン</td></tr>
+        <tr><td>課金の有無</td>
+        <td>課金あり</td></tr>
+        <tr><td>備考</td>
+        <td>黒人</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+
+        <div id="agyou"></div>
+        <p>あ行</p>
+        <p>あかトンボ電波さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>あかトンボでんぱ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>甘夏さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>Amana2</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>或ルオ所とことこさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>あるおところとことこ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@AruOtokotoko_o</td></tr>
+        </table>
+        <p>あーすけさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>あーすけ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>なし</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>エルさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>える</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+
+        <div id="kagyou"></div>
+        <p>か行</p>
+        <p>カシスさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>カシス</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>木村さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>き</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>きりれるさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>きりれる</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>キリンさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>#キリン</td></tr>
+        <tr><td>課金の有無</td>
+        <td>課金あり</td></tr>
+        <tr><td>備考</td>
+        <td>黒人</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>くーたんさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>くーたん</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <div id="sagyou"></div>
+        <p>さ行</p>
+        <p>さかしたりょうさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>さかしたりょうsns</td></tr>
+        <tr><td>課金額</td>
+        <td></td></tr>
+        <tr><td>備考</td>
+        <td>知る限り課金額No.1</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ささみさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ATSUHISA</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>さらだんごstさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>さらだ</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>顔厳選ガチ勢</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>しぃさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ブスでんぱつかい</td></tr>
+        <tr><td>課金の有無</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ししゃもさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ししゃも</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>鎮めるやつさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>しずめるやつ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>あり</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>自動回復さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ZIDOUKAIHUKU</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@ZIDOUKAIHUKU</td></tr>
+        </table>
+        <p>シュウマイさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>シュウマイ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>ジョーカーさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ジョーカー</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>Aラン上位常連</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>セインさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>セイン</td></tr>
+        <tr><td>課金額</td>
+        <td>30J</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>創造神フロスト</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>私は素晴らしい！など</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>ただのゴミチーター</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@xxyy1204</td></tr>
+        </table>
+        <div id="tagyou"></div>
+        <p>た行</p>
+        <p>ちゃんおじさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ちゃんおじ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>あり</td></tr>
+        <tr><td>備考</td>
+        <td>個体作りすぎ</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>デスマスさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>デスマス</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@UCeZmN4NSGSSd1V</td></tr>
+        </table>
+        <p>デュアルソウルさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>Dソウル§ゆみ</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ドレミさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>doremiy</td></tr>
+        <tr><td>課金額</td>
+        <td>課金ありだが不明</td></tr>
+        <tr><td>備考</td>
+        <td>時々見かける</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <div id="nagyou"></div>
+        <p>な行</p>
+        <p>ヌフへさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>nufuhe</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td>最後のポーンやばい</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ぬゆるさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ぬゆる</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>ねむりのかみさまさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ねむりのかみさま</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="hagyou"></div>
+        <p>は行</p>
+        <p>パックさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>パック</td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>捕獲に親アヒル</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>はやしたっかー</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>はやしたっかー</td></tr>
+        <tr><td>課金額</td>
+        <td>25万</td></tr>
+        <tr><td>備考</td>
+        <td>自称YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ヒクソンさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ヒクソン</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ふぇありーさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ふぇありー</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>3月に引退した</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ふていけいなはなくそ</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ふていけいなはなくそ</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td>現在は耳軸さんが持っている</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@huteikeidenpa</td></tr>
+        </table>
+        <p>紅雨さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td></td></tr>
+        <tr><td>課金の有無</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>邪神レレパの人</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="magyou"></div>
+        <p>ま行</p>
+        <p>まめもやしさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>まめもやし</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>みなみさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>みなみ</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>チート疑惑がある</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>ミッター3kさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ミッター3k</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>ー</td></tr>
+        </table>
+        <p>みっどさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>みっど</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>耳軸さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>aruaka10</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>みやくれさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>みやくれ</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>麺さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ふうろめん</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="yagyou"></div>
+        <p>や行</p>
+        <p>山口組さん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>RuFus</td></tr>
+        <tr><td>課金額</td>
+        <td>30万</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>やましんさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>やましん</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ゆいぽこさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ゆいぽこ</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>ゆっくりドリームさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ゆっくりドリーム</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>3月に引退した</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ゆっくん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ゆっくん</td></tr>
+        <tr><td>課金額</td>
+        <td>20万</td></tr>
+        <tr><td>備考</td>
+        <td>元YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>よっしーさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>よっしー</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>ヨッシー</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ヨッシー</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="ragyou"></div>
+        <p>ら行</p>
+        <p>レタスさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>レタスでーす</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <div id="wagyou"></div>
+        <p>わ行</p>
+        <p>わらいさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>わらい</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="sonota"></div>
+        <p>その他</p>
+        <p>BJさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ぼん</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td>エンジョイガチ勢</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>HelloWorldさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>HelloWorld</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@HelloWo23274715</td></tr>
+        </table>
+        <p>koinuさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>koinu</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>Merisさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>Meris</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>MKさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>M.K</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>Rさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>R</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <p>rootさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>root</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>むがいくんの生みの親</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@root_mgi</td></tr>
+        </table>
+        <p>SeniorEdaさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>SeniorEda</td></tr>
+        <tr><td>課金額</td>
+        <td>10万</td></tr>
+        <tr><td>備考</td>
+        <td>データ消滅したらしい</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>ー</td></tr>
+        </table>
+        <p>SLさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>SL
+        </td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
+        </table>
+        <p>syocyanさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>syocyan</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@shocyan524</td></tr>
+        </table>
+        <p>urukomiさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>urukomi_</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td>@rorukomi777</td></tr>
+        </table>
+        <p>YKさん</p>
+        <img src="images/bisitto.png" class="img" alt="4月イベキャ">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>YK</td></tr>
+        <tr><td>課金額</td>
+        <td>無課金</td></tr>
+        <tr><td>備考</td>
+        <td>YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td></td></tr>
+        </table>
+        <div id="page_top"><a href="#"></a></div>
+    </div>
+    </div>
+</div>
+</p>
