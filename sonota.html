@@ -53,6 +53,10 @@
             width: 95vw;
             display: none;
         }
+        #karyoku {
+            width: 95vw;
+            display: none;
+        }
 
     }
     @media screen and (min-width:481px) {
@@ -97,6 +101,10 @@
             width: 30vw;
             display: none;
         }
+        #karyoku {
+            width: 30vw;
+            display: none;
+        }
     }
     
 
@@ -132,6 +140,11 @@
     <p>
         <img src="images/gekirea.png" id="gekirea" alt="オススメ激レアアイテム一覧表">
     </p>
+    <input type="button" value="黄金くじ早見表"
+    onclick="document.getElementById('ougonn').style.display = 'inline';">
+<p>
+    <img src="images/ougonn.jpg" id="ougonn" alt="黄金くじ早見表">
+</p>
         <input type="button" value="使えるシリアルコード早見表"
         onclick="document.getElementById('siriaru').style.display = 'inline';">
     <p>
@@ -162,11 +175,12 @@ onclick="document.getElementById('sutamina').style.display = 'inline';">
 <p>
 <img src="images/sutamina.jpg" id="sutamina" alt="スタミナのもと入手方法">
 </p>
-    <input type="button" value="黄金くじ早見表"
-    onclick="document.getElementById('ougonn').style.display = 'inline';">
+<input type="button" value="属性耐性別の属性攻撃を庇った時のダメージ一覧"
+onclick="document.getElementById('karyoku').style.display = 'inline';">
 <p>
-    <img src="images/ougonn.jpg" id="ougonn" alt="黄金くじ早見表">
+<img src="images/karyoku.jpg" id="karyoku" alt="属性耐性別の属性攻撃を庇った時のダメージ一覧">
 </p>
+
 <a href="https://wikiwiki.jp/youtonfree/%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%88%E3%83%A9%20%28%E9%BB%84%E9%87%91%E3%81%AE%E6%89%89%29#hbfa2c2e" class="btn">その他の黄金くじ詳細</a><br>
 <a href="https://wikiwiki.jp/youtonfree/%E5%AD%A3%E7%AF%80%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88#usinawaretazou" class="btn">失われた勤労の像攻略テンプレ</a><br>
 <a href="https://wikiwiki.jp/youtonfree/%E5%AD%A3%E7%AF%80%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88#nazopira" class="btn">謎のピラミッド攻略テンプレ</a><br>
