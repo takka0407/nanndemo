@@ -147,6 +147,7 @@ behavior: "smooth"
         background: #f4f4f4;/*背景色*/
         border-left: solid 5px #7db4e6;/*左線*/
         border-bottom: solid 3px #d7d7d7;/*下線*/
+        text-align: center;
     }
 
     .table1 th, .table1 td{
@@ -244,7 +245,13 @@ table tr:last-child td:last-child {
 font-weight:bold;
 background-color:Yellow;
 }
+.pc {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 500px;
+        }
     </style>
+    <div class="pc">
         <a href="index.html">ホームへ戻る</a><br>
         <p>装備の効果を知りたいけどスクロールするのが面倒な人はページ内検索が楽です！PCの人はF3キー</p>
 
@@ -259,7 +266,7 @@ background-color:Yellow;
 </ul>        
      
         <a href="https://wikiwiki.jp/youtonfree/%E4%BB%98%E5%8A%A0%E5%8A%B9%E6%9E%9C%28%E8%A3%85%E5%82%99%29" class="btn">装備の効果から逆算もできます</a><br>
-        <a href="soubi3.html" class="btn">↑の簡略版です。追加効果も分かります。</a><br>
+
         <a href="https://twitter.com/kouseidenpa" class="btn">ガチパの装備構成を参考にしたい方は構成電波が便利です！</a><br>
 
         <p>よく聞かれる装備一覧</p>
@@ -272,7 +279,7 @@ background-color:Yellow;
             <li><a href="soubi2.html#asi" class="btn">あし装備</a></li>
         </ul>
         <form name="highlight">
-          <input type="text" id="word" placeholder="ページ内テキスト検索" /> <input type="button" onclick="doHighlight()" value="検索" /> <input type="reset" name="reset" id="reset" value="リセット"> <input name="ページリセット" type="button" value="ページリセット" onClick="location.reload(true);"/>
+          <input type="text" id="word" placeholder="ページ内テキスト検索" /> <input type="button" onclick="doHighlight()" value="検索" /> <input type="reset" name="reset" id="reset" value="リセット">
           </form>
           <!-- ハイライトのターゲットとする範囲 - 開始 -->
           <div id="target">
@@ -898,6 +905,6 @@ background-color:Yellow;
       </div>
       <!-- ハイライトのターゲットとする範囲 - 終了 -->
         <div id="page_top"><a href="#"></a></div>
-
+        </div>
     </body>
     </html>
