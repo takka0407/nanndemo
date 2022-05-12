@@ -9,6 +9,7 @@
 
     <body onload="LoadProc();">
 
+
     <h1 div class="title">電波人間お役立ちサイト</h1></div>
     <div class="box2">
     <div id="ibennto"></div>
@@ -33,6 +34,7 @@
         #kekka{
             font-size: xx-large;
         }
+
     }
 
     .title {
@@ -41,6 +43,7 @@
         background: #f4f4f4;/*背景色*/
         border-left: solid 5px #7db4e6;/*左線*/
         border-bottom: solid 3px #d7d7d7;/*下線*/
+        text-align: center;
     }
     span{
 display:inline-block;
@@ -121,10 +124,15 @@ transform: rotate(30deg);
     background: whitesmoke;/*背景色*/
     border-left: double 7px #4ec4d3;/*左線*/
     border-right: double 7px #4ec4d3;/*右線*/
+    text-align: center;
 }
 .box3 p {
     margin: 0; 
     padding: 0;
+}
+ul {
+	list-style-type: none;
+	padding-left: 0;
 }
 </style>
 <script>
@@ -136,19 +144,19 @@ window.onload = function(){
         var month = now.getMonth () ;
         var youbi = now.getDay() ;
             if (youbi == 0) {
-                document.getElementById("ibennto").innerHTML = "今日は日曜日で経験値ゲットの日です。明日はブーストゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は日曜日で経験値ゲットの日です。<br>明日はブーストゲットの日です。";
             } else if (youbi == 1) {
-                document.getElementById("ibennto").innerHTML = "今日は月曜日でブーストゲットの日です。明日は経験値ゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は月曜日でブーストゲットの日です。<br>明日は経験値ゲットの日です。";
             } else if (youbi == 2) {
-                document.getElementById("ibennto").innerHTML = "今日は火曜日で経験値ゲットの日です。明日は何もない日です。";
+                document.getElementById("ibennto").innerHTML = "今日は火曜日で経験値ゲットの日です。<br>明日は何もない日です。";
             } else if (youbi == 3) {
-                document.getElementById("ibennto").innerHTML = "今日は水曜日で何もない日です。明日はブーストゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は水曜日で何もない日です。<br>明日はブーストゲットの日です。";
             } else if (youbi == 4) {
-                document.getElementById("ibennto").innerHTML = "今日は木曜日でブーストゲットの日です。明日は経験値ゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は木曜日でブーストゲットの日です。<br>明日は経験値ゲットの日です。";
             } else if (youbi == 5) {
-                document.getElementById("ibennto").innerHTML = "今日は金曜日で経験値ゲットの日です。明日はブーストゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は金曜日で経験値ゲットの日です。<br>明日はブーストゲットの日です。";
             } else if (youbi == 6) {
-                document.getElementById("ibennto").innerHTML = "今日は土曜日でブーストゲットの日です。明日は経験値ゲットの日です。";
+                document.getElementById("ibennto").innerHTML = "今日は土曜日でブーストゲットの日です。<br>明日は経験値ゲットの日です。";
             }
             if (day == 1) {
                 document.getElementById("ibennto2").innerHTML = "今日はプチジュエルゲットの日です。忘れないように！";
