@@ -17,7 +17,11 @@
 
     }
     @media screen and (min-width:481px) {
-
+        .pc {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 500px;
+        }
     }
     @media screen and (max-width:720px) {
         .title{font-size:large
@@ -28,6 +32,7 @@
         #turi2{
             display: none;
         }
+
     }
     @media screen and (min-width:720px) {
 
@@ -38,6 +43,11 @@
         #turi2 {
             width: 50vw; 
             display: block !important;
+        }
+        .pc {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 500px;
         }
     }
 
@@ -67,11 +77,39 @@
     margin: 0; 
     padding: 0;
 }
-.pc {
-            width: 80%;
-            margin: 0 auto;
-            max-width: 500px;
-        }
+.box{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+ul {
+	list-style-type: none;
+	padding-left: 0;
+    margin: auto;
+    text-align:center
+}
+
+.sitayohaku {
+    margin-bottom: 10px;
+}
+
     </style>
     <div class="pc">
         <a href="index.html">ホームへ戻る</a><br>
@@ -92,10 +130,13 @@
         <li><a href="https://wikiwiki.jp/youtonfree/%E9%87%A3%E3%82%8A%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8%EF%BC%81#turicha9" class="btn">12月(出生ダケ・ドリタケ)</a></li> 
     </ul>
         </div>
+        <div class="box">
        <p> 釣り竿は釣りチャレンジかレッツフィッシングで手に入ります。<br>
         魚に合った餌をつけているとその魚の出現率が上がります。<br>
         フィッシュフルーツは3つ使うと確定でレベルが上がるのでレベルが上がった直後に使うと無駄なく使えます<br>
         お目当ての魚ではない魚が竿にかかってもそのまま待てばお目当ての魚が寄ってきます。</p>
+        </div>
+        <div class="sitayohaku"></div>
         <img src="images/turi2.png" id="turi" alt="釣り竿ティア表"><br>
         <img src="images/turi.jpg" id="turi2" alt="釣り竿ティア表2"><br>
     </div>
