@@ -40,17 +40,15 @@
         </script>
 <!--CSS-->
     <style>
-    @media screen and (max-width:640px) {
+    @media screen and (max-width:480px) {
         .title{font-size:large
         }
         #img {
-        width : 95vw ; 
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;  
+        width : 85vw ; 
+
     }
 }
-    @media screen and (min-width:641px) {
+    @media screen and (min-width:481px) {
 
     .img {
         width : 50vw ; 
@@ -61,16 +59,8 @@
 
     }
 }
-    @media screen and (min-width:960px) {
 
-    .img {
-        width : 40vw ; 
-        max-width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; 
-    }
-}
+
     .title {
         padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
         color: #494949;/*文字色*/
@@ -129,10 +119,33 @@ h2{
   margin: auto;
   text-align: center;
 }
+.box{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
 table{
   width: 100%;
   border-collapse:separate;
   border-spacing: 0;
+  background-color: white;
 }
 
 table th:first-child{
@@ -191,7 +204,9 @@ background-color:Yellow;
         <a href="index.html">ホームへ戻る</a><br>
 
         <img src="images/risaikuru.png" id="img" alt="リサイクルオススメ"><br>
-        <p>個人的オススメは☆6リサイクル。☆7より安いしサバゴーや鋼鉄ロケットなどが狙えて、大成功で☆7も狙える</p>
+        <div class="box">
+        <p>個人的オススメは☆6リサイクル。☆7より安く、サバゴーや鋼鉄ロケットなどが狙えて、大成功で☆7も狙える</p>
+        </div>
 
 <p>リサイクルレア度別当たりアイテム</p>
 <a href=risaikuru.html#hosi2>☆2~4</a>
@@ -277,7 +292,7 @@ background-color:Yellow;
         <tr><td>☆5</td>
         <td>経験ドリンク</td>
         <td>準速か最速+かの判断ができる</td>
-        </table>
+        </div></table>
 
 
         <div id="hosi6"></div>
@@ -350,7 +365,7 @@ background-color:Yellow;
         <tr><td>☆6</td>
         <td>おうごんのかぎ</td>
         <td></td></tr>
-        </table>
+        </div></table>
 
         <div id="hosi7"></div>
         <div class="table1"></div>  
