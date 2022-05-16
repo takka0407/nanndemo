@@ -199,10 +199,46 @@ h2{
   margin: auto;
   text-align: center;
 }
+.box{
+    position: relative;
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 5px #fff0cd;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    color: #454545;
+}
+.box:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    top: -7px;
+    border-width: 0 15px 15px 0;
+    border-style: solid;
+    border-color: #ffdb88 #fff #ffdb88;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.box p {
+    margin: 0; 
+    padding: 0;
+}
+.box3{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    color: #474747;
+    background: whitesmoke;/*背景色*/
+    border-left: double 7px #4ec4d3;/*左線*/
+    border-right: double 7px #4ec4d3;/*右線*/
+    text-align: center;
+}
+.box3 p {
+    margin: 0; 
+    padding: 0;
+}
 table{
   width: 100%;
   border-collapse:separate;
   border-spacing: 0;
+  background-color: white;
 }
 
 table th:first-child{
@@ -256,26 +292,37 @@ background-color:Yellow;
             margin: 0 auto;
             max-width: 500px;
         }
+        ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
     </style>
     <div class="pc">
         <a href="index.html">ホームへ戻る</a><br>
+        <div class="box">
         <p>装備の効果を知りたいけどスクロールするのが面倒な人はページ内検索が楽です！PCの人はF3キー</p>
-
+        
         <a href="https://www.benricho.org/Tips/ctrl_F/smartphone.html">ページ内検索のやり方はこちらのサイトで詳しく説明してあります。</a><br>
-<ul>
+        </div>
+        <p>全装備一覧(WiKi)</p>
+        <div class="box3">
+        <ul>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%B5%E3%81%8F" class="btn">ふく装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%8B%E3%81%8A%E3%81%9D%E3%81%86%E3%81%B3" class="btn">かお装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%8F%E3%81%B3%E3%81%9D%E3%81%86%E3%81%B3" class="btn">くび装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%86%E3%81%A7%E3%81%9D%E3%81%86%E3%81%B3" class="btn">うで装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%9B%E3%81%AA%E3%81%8B%E3%81%9D%E3%81%86%E3%81%B3" class="btn">せなか装備</a></li>
         <li><a href="https://wikiwiki.jp/youtonfree/%E3%81%9D%E3%81%86%E3%81%B3/%E3%81%82%E3%81%97%E3%81%9D%E3%81%86%E3%81%B3" class="btn">あし装備</a></li>
-</ul>        
+</ul>       
+        </div> 
      
         <a href="https://wikiwiki.jp/youtonfree/%E4%BB%98%E5%8A%A0%E5%8A%B9%E6%9E%9C%28%E8%A3%85%E5%82%99%29" class="btn">装備の効果から逆算もできます</a><br>
 
         <a href="https://twitter.com/kouseidenpa" class="btn">ガチパの装備構成を参考にしたい方は構成電波が便利です！</a><br>
 
         <p>よく聞かれる装備一覧</p>
+        <div class="box3">
         <ul>
             <li><a href="soubi2.html#huku" class="btn">ふく装備</a></li> 
             <li><a href="soubi2.html#kao" class="btn">かお装備</a></li> 
@@ -284,6 +331,7 @@ background-color:Yellow;
             <li><a href="soubi2.html#senaka" class="btn">せなか装備</a></li> 
             <li><a href="soubi2.html#asi" class="btn">あし装備</a></li>
         </ul>
+        </div>
         <form name="highlight">
           <input type="text" id="word" placeholder="ページ内テキスト検索" /> <input type="button" onclick="doHighlight()" value="検索" /> <input type="reset" name="reset" id="reset" value="リセット">
           </form>
