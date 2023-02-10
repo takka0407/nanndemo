@@ -68,6 +68,20 @@ jQuery(function() {
   margin: 0 auto;
   max-width: 500px;
     }
+    .window {
+	width: 90vw;
+	max-width: 720px;
+	height: 400px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+
+	justify-content: center;
+	align-items: center;
+	position: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+        }
 }
 
   img {
@@ -198,9 +212,70 @@ ul {
 	padding-left: 0;
   text-align:center
 }
+.open {
+	cursor:pointer; 
+}
+#a1,#a2,#a3,#a4,#a5,#a6,#a7,#a8,#a9,#a10,#a11,#a12,#a13,#a14,#a15,#a16,#a17,#a18,#a19,#a20{
+    display: none;
+}
+.overlay {
+	display: none;
+}
+#a1:checked + .overlay ,#a2:checked + .overlay,#a3:checked + .overlay,#a4:checked + .overlay,#a5:checked + .overlay,
+#a6:checked + .overlay,#a7:checked + .overlay,#a8:checked + .overlay,#a9:checked + .overlay,#a10:checked + .overlay,
+#a11:checked + .overlay,#a12:checked + .overlay,#a13:checked + .overlay,#a14:checked + .overlay,#a15:checked + .overlay,
+#a16:checked + .overlay,#a17:checked + .overlay,#a18:checked + .overlay,#a19:checked + .overlay,#a20:checked + .overlay
+
+{
+	display: block;
+	background-color: #00000070;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+
+.window {
+	width: 90vw;
+	max-width: 380px;
+	height: 400px;
+	background-color: #bbbbbb;
+	border-radius: 8px;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.close {
+	cursor:pointer;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	font-size: 20px;
+}
+</style>
+<script>
 
 
-    </style>
+    $(document).on({
+    "mouseenter": function () {
+        var offset = $(this).offset();
+        $($(this).attr("href")).show().css({
+            left: offset.left + 200,
+            top: offset.top - 15
+        });
+    },"mouseleave": function () {
+        $($(this).attr("href")).hide();
+    }
+}, ".popup");
+</script>
+
+
+
     <div class="pc">
         <a href="index.html">ホームへ戻る</a><br>
         <p>プレイヤー名一覧(無許可)</p>
@@ -221,7 +296,7 @@ ul {
         </ul>
         </div>
         <div id="gatipa"></div>
-        <p>2022年10月現在確認できたガチパ</p>
+        <p>2023年2月現在確認できたガチパ</p>
         <p>甘夏さん</p>
         <img src="images/amanatu.jpg" class="img" alt="甘夏">
         <div class="table1">
@@ -233,7 +308,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Denpa_AMN2</td></tr>
+        <td><a href="https://twitter.com/Denpa_AMN2" class="btn">@Denpa_AMN2</a></td></tr>
         </table>
         <p>あられみこみさん</p>
         <img src="images/araremikomi.JPG" class="img" alt="あられみこみ">
@@ -259,7 +334,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@AruOtokotoko_o</td></tr>
+        <td><a href="https://twitter.com/AruOtokotoko_o" class="btn">@AruOtokotoko_o</a></td></tr>
         </table>
 	<p>いつきさん</p>
         <img src="images/ituki.jpg" class="img" alt="いつき">
@@ -272,21 +347,9 @@ ul {
         <tr><td>備考</td>
         <td>史上3人目のワイコロ勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@iTuki_TDMF2021</td></tr>
+        <td><a href="https://twitter.com/iTuki_TDMF2021" class="btn">@iTuki_TDMF2021</a></td></tr>
         </table>
-        <p>シュウマイさん</p>
-        <img src="images/syuumai.jpg" class="img" alt="シュウマイ">
-        <div class="table1">
-        <table border="1">
-        <tr><td>プレイヤー名</td>
-        <td>シュウマイ</td></tr>
-        <tr><td>課金額</td>
-        <td>不明</td></tr>
-        <tr><td>備考</td>
-        <td></td></tr>
-        <tr><td>Twitter垢</td>
-        <td>不明</td></tr>
-        </table>
+
         <p>ジョーカーさん</p>
         <img src="images/jo-ka-.jpg" class="img" alt="ジョーカー">
         <div class="table1">
@@ -311,7 +374,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Seeeeevas</td></tr>
+        <td><a href="https://twitter.com/Seeeeevas" class="btn">@Seeeeevas</a></td></tr>
         </table>
         <p>せいうちさん</p>
         <img src="images/seiuti.JPG" class="img" alt="せいうち">
@@ -337,7 +400,7 @@ ul {
         <tr><td>備考</td>
         <td>史上2人目の勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpaOjiOji</td></tr>
+        <td><a href="https://twitter.com/denpaOjiOji" class="btn">@denpaOjiOji</a></td></tr>
         </table>
         <p>ちゃんまさん</p>
         <img src="images/chanma.JPG" class="img" alt="ちゃんま">
@@ -350,7 +413,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@wloq_v</td></tr>
+        <td><a href="https://twitter.com/wloq_v" class="btn">@wloq_v</a></td></tr>
         </table>
         <p>ちょこみんとさん</p>
         <img src="images/chokominto.jpg" class="img" alt="ちょこみんと">
@@ -363,7 +426,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Denpa_men</td></tr>
+        <td><a href="https://twitter.com/Denpa_men" class="btn">@Denpa_men</a></td></tr>
         </table>
 	<p>ツキorangeさん</p>
         <img src="images/tukiorange.jpg" class="img" alt="ツキorange">
@@ -376,7 +439,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Moon_orange310</td></tr>
+        <td><a href="https://twitter.com/Moon_orange310" class="btn">@Moon_orange310</a></td></tr>
         </table>
         <p>ヌフへさん</p>
         <img src="images/nuhuhe.jpg" class="img" alt="ヌフへ">
@@ -402,7 +465,7 @@ ul {
         <tr><td>備考</td>
         <td>史上初のワイコロ勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@____n__o____</td></tr>
+        <td><a href="https://twitter.com/____n__o____" class="btn">@____n__o____</a></td></tr>
         </table>
 	<p>はあさん</p>
         <img src="images/haa.jpg" class="img" alt="はあ">
@@ -415,7 +478,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@haa1280</td></tr>
+        <td><a href="https://twitter.com/haa1280" class="btn">@haa1280</a></td></tr>
         </table>		
 	<p>はなもぐらさん</p>
         <img src="images/hanamogura.jpg" class="img" alt="はなもぐら">
@@ -428,7 +491,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@nonstickmite866</td></tr>
+        <td><a href="https://twitter.com/nonstickmite866" class="btn">@nonstickmite866</a></td></tr>
         </table>
         <p>はやしたっかー</p>
         <img src="images/takka.jpg" class="img" alt="たっかー">
@@ -441,7 +504,7 @@ ul {
         <tr><td>備考</td>
         <td>自称YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@takka0407</td></tr>
+        <td><a href="https://twitter.com/takka0407" class="btn">@takka0407</a></td></tr>
         </table>
 	<p>はやしたっかーのサブ</p>
         <img src="images/takkasub.jpg" class="img" alt="たっかーのサブ">
@@ -454,7 +517,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@takka0407</td></tr>
+        <td><a href="https://twitter.com/takka0407" class="btn">@takka0407</a></td></tr>
         </table>
         <p>ヒクソン・ジャクソンさん</p>
         <img src="images/hikuson.jpg" class="img" alt="ヒクソン">
@@ -467,7 +530,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@hksn__dnp</td></tr>
+        <td><a href="https://twitter.com/hksn__dnp" class="btn">@hksn__dnp</a></td></tr>
         </table>
         <p>ふていけいなはなくそさん</p>
         <img src="images/hutehana.jpg" class="img" alt="ふてはな">
@@ -480,7 +543,7 @@ ul {
         <tr><td>備考</td>
         <td>現在はまめもやしさんがデータを持っている</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@huteikeidenpa</td></tr>
+        <td><a href="https://twitter.com/huteikeidenpa" class="btn">@huteikeidenpa</a></td></tr>
         </table>
 	<p>棒人間さん</p>
         <img src="images/bouninngen.jpg" class="img" alt="棒人間">
@@ -493,7 +556,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpa_bouningen</td></tr>
+        <td><a href="https://twitter.com/denpa_bouningen" class="btn">@denpa_bouningen</a></td></tr>
         </table>
 	<p>まっちゃさん</p>
         <img src="images/mattya.jpg" class="img" alt="まっちゃ">
@@ -506,7 +569,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@HriK6uSemOakgBR</td></tr>
+        <td><a href="https://twitter.com/HriK6uSemOakgBR" class="btn">@HriK6uSemOakgBR</a></td></tr>
         </table>
 	<p>まめもやしさん</p>
         <img src="images/mamemoyasi.jpg" class="img" alt="まめもやし">
@@ -519,7 +582,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Freesia_DENPA</td></tr>
+        <td><a href="https://twitter.com/Freesia_DENPA" class="btn">@Freesia_DENPA</a></td></tr>
         </table>
         <p>ミッター3kさん</p>
         <img src="images/mitta-.jpg" class="img" alt="ミッター3k">
@@ -545,7 +608,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@mid_OA</td></tr>
+        <td><a href="https://twitter.com/mid_OA" class="btn">@mid_OA</a></td></tr>
         </table>
         <p>みやくれ</p>
         <img src="images/miyakure.jpg" class="img" alt="みやくれ">
@@ -558,7 +621,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber<br>6月で引退、7月に復帰<br>12月に引退、12月に復帰<br>2月に引退、2月に復帰<br>2月に引退</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@miykure</td></tr>
+        <td><a href="https://twitter.com/miykure" class="btn">@miykure</a></td></tr>
         </table>
 　　　　<p>めりださん</p>
         <img src="images/merida.jpg" class="img" alt="めりだ">
@@ -571,7 +634,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@m_denp</td></tr>
+        <td><a href="https://twitter.com/m_denp" class="btn">@m_denp</a></td></tr>
         </table>
         <p>めるしーさん</p>
         <img src="images/merusi-.JPG" class="img" alt="めるしー">
@@ -584,7 +647,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@merci_game</td></tr>
+        <td><a href="https://twitter.com/merci_game" class="btn">@merci_game</a></td></tr>
         </table>
 	<p>山口組さん</p>
         <img src="images/yamaguti.jpg" class="img" alt="山口組">
@@ -610,7 +673,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@YOUE5682124</td></tr>
+        <td><a href="https://twitter.com/YOUE5682124" class="btn">@YOUE5682124</a></td></tr>
         </table>
 	<p>ゆっくりドリームさん</p>
         <img src="images/yukudori.jpg" class="img" alt="ゆっくりドリーム">
@@ -623,7 +686,20 @@ ul {
         <tr><td>備考</td>
         <td>6月から復帰</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@yukudori1008</td></tr>
+        <td><a href="https://twitter.com/yukudori1008" class="btn">@yukudori1008</a></td></tr>
+        </table>
+        <p>ゆっくん</p>
+        <img src="images/yukkun.jpg" class="img" alt="ゆっくん">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ゆっくん´∀｀</td></tr>
+        <tr><td>課金額</td>
+        <td>20万円</td></tr>
+        <tr><td>備考</td>
+        <td>元YouTuber</td></tr>
+        <tr><td>Twitter垢</td>
+        <td>不明</td></tr>
         </table>
         <p>よっしーさん</p>
         <img src="images/yossi-.jpg" class="img" alt="よっしー">
@@ -636,7 +712,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber<br>YKさんの弟さん</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@0HDItsUp11hdrkL</td></tr>
+        <td><a href="https://twitter.com/0HDItsUp11hdrkL" class="btn">@0HDItsUp11hdrkL</a></td></tr>
         </table>
         <p>ヨッシーさん</p>
         <img src="images/yossi-2.jpg" class="img" alt="ヨッシー">
@@ -662,7 +738,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Letasu_Denpa</td></tr>
+        <td><a href="https://twitter.com/Letasu_Denpa" class="btn">@Letasu_Denpa</a></td></tr>
         </table>
         <p>BlueWaveさん</p>
         <img src="images/bluewave.jpg" class="img" alt="bluewave">
@@ -688,7 +764,7 @@ ul {
         <tr><td>備考</td>
         <td>よく名前を変える人</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@HelloWo23274715</td></tr>
+        <td><a href="https://twitter.com/HelloWo23274715" class="btn">@HelloWo23274715</a></td></tr>
         </table>
 	<p>kitakaさん</p>
         <img src="images/kitaka.JPG" class="img" alt="kitaka">
@@ -701,7 +777,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@kitaka_9</td></tr>
+        <td><a href="https://twitter.com/kitaka_9" class="btn">@kitaka_9</a></td></tr>
         </table>
 	<p>LOLさん</p>
         <img src="images/lol.jpg" class="img" alt="lol">
@@ -727,7 +803,7 @@ ul {
         <tr><td>備考</td>
         <td>顔けいじゅ</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@lam_qiiii</td></tr>
+        <td><a href="https://twitter.com/lam_qiiii" class="btn">@lam_qiiii</a></td></tr>
         </table>
         <p>rootさん</p>
         <img src="images/root.jpg" class="img" alt="root">
@@ -740,7 +816,7 @@ ul {
         <tr><td>備考</td>
         <td>むがいくんの生みの親<br>現在はBランに潜っている</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@root_mgi</td></tr>
+        <td><a href="https://twitter.com/root_mgi" class="btn">@root_mgi</a></td></tr>
         </table>
         <p>solusさん</p>
         <img src="images/solus.jpg" class="img" alt="solus">
@@ -766,7 +842,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@am60477961</td></tr>
+        <td><a href="https://twitter.com/am60477961" class="btn">@am60477961</a></td></tr>
         </table>
         <p>yuukiさん</p>
         <img src="images/yuki.jpg" class="img" alt="yuki">
@@ -808,7 +884,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpalagoon</td></tr>
+        <td><a href="https://twitter.com/denpalagoon" class="btn">@denpalagoon</a></td></tr>
         </table>
         <p>甘夏さん</p>
         <img src="images/amanatu.jpg" class="img" alt="甘夏">
@@ -821,7 +897,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Denpa_AMN2</td></tr>
+        <td><a href="https://twitter.com/Denpa_AMN2" class="btn">@Denpa_AMN2</a></td></tr>
         </table>
         <p>あられみこみさん</p>
         <img src="images/araremikomi.JPG" class="img" alt="あられみこみ">
@@ -847,7 +923,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@AruOtokotoko_o</td></tr>
+        <td><a href="https://twitter.com/AruOtokotoko_o" class="btn">@AruOtokotoko_o</a></td></tr>
         </table>
         <p>あーすけさん</p>
         <img src="images/a-suke.png" class="img" alt="あーすけ">
@@ -873,7 +949,7 @@ ul {
         <tr><td>備考</td>
         <td>史上3人目のワイコロ勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@iTuki_TDMF2021</td></tr>
+        <td><a href="https://twitter.com/iTuki_TDMF2021" class="btn">@iTuki_TDMF2021</a></td></tr>
         </table>
         <p>うずらさん</p>
         <img src="images/uzura.jpg" class="img" alt="うずら">
@@ -941,7 +1017,7 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@N7DHf9l7DtDN8J1</td></tr>
+        <td><a href="https://twitter.com/N7DHf9l7DtDN8J1" class="btn">@N7DHf9l7DtDN8J1</a></td></tr>
         </table>
         <p>きりれるさん</p>
         <img src="images/kirireru.jpg" class="img" alt="きりれる">
@@ -954,7 +1030,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@R1reru</td></tr>
+        <td><a href="https://twitter.com/R1reru" class="btn">@R1reru</a></td></tr>
         </table>
         <p>キリンさん</p>
         <img src="images/kirinsaaaaaaaan.jpg" class="img" alt="キリンさああああああああん">
@@ -993,7 +1069,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Ktorerere</td></tr>
+        <td></td></tr>
         </table>
         <p>コットさん</p>
         <img src="images/kotto.jpg" class="img" alt="コット">
@@ -1021,7 +1097,7 @@ ul {
         <tr><td>備考</td>
         <td>知る限り課金額No.1</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@sakashitaryoace</td></tr>
+        <td><a href="https://twitter.com/sakashitaryoace" class="btn">@sakashitaryoace</a></td></tr>
         </table>
         <p>ささみさん</p>
         <img src="images/sasami.jpg" class="img" alt="ささみ">
@@ -1034,7 +1110,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@clear_sasami</td></tr>
+        <td></td></tr>
         </table>
         <p>さらだんごstさん</p>
         <img src="images/sarada.jpg" class="img" alt="さらだんご">
@@ -1047,7 +1123,7 @@ ul {
         <tr><td>備考</td>
         <td>顔厳選ガチ勢</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Merkis_Star</td></tr>
+        <td></td></tr>
         </table>
         <p>しぃさん</p>
         <img src="images/sii.jpg" class="img" alt="しぃ">
@@ -1060,7 +1136,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpamen_C</td></tr>
+        <td><a href="https://twitter.com/denpamen_C" class="btn">@denpamen_C</a></td></tr>
         </table>
         <p>じごくさん</p>
         <img src="images/zigoku.jpg" class="img" alt="じごく">
@@ -1086,7 +1162,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@F66hhga</td></tr>
+        <td></td></tr>
         </table>
         <p>鎮めるやつさん</p>
         <img src="images/sizu.jpg" class="img" alt="鎮めるやつ">
@@ -1099,7 +1175,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@chinsei_S</td></tr>
+        <td><a href="https://twitter.com/chinsei_S" class="btn">@chinsei_S</a></td></tr>
         </table>
         <p>自動回復さん</p>
         <img src="images/ZIDOUKAIHUKU.png" class="img" alt="自動回復">
@@ -1112,7 +1188,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@ZIDOUKAIHUKU</td></tr>
+        <td><a href="https://twitter.com/ZIDOUKAIHUKU" class="btn">@ZIDOUKAIHUKU</a></td></tr>
         </table>
         <p>シュウマイさん</p>
         <img src="images/syuumai.jpg" class="img" alt="シュウマイ">
@@ -1151,7 +1227,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Seeeeevas</td></tr>
+        <td><a href="https://twitter.com/Seeeeevas" class="btn">@Seeeeevas</a></td></tr>
         </table>
         <p>すしすさん</p>
         <img src="images/susisu.jpg" class="img" alt="すしす">
@@ -1190,7 +1266,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@sein8787</td></tr>
+        <td><a href="https://twitter.com/sein8787" class="btn">@sein8787</a></td></tr>
         </table>
         <p>創造神フロスト</p>
         <img src="images/yosimon.jpg" class="img" alt="よしもん">
@@ -1203,7 +1279,7 @@ ul {
         <tr><td>備考</td>
         <td>ただのゴミチーター</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@GODfrost1204</td></tr>
+        <td><a href="https://twitter.com/GODfrost1204" class="btn">@GODfrost1204</a></td></tr>
         </table>
         <div id="tagyou"></div>
         <p>た行</p>
@@ -1218,7 +1294,20 @@ ul {
         <tr><td>備考</td>
         <td>史上2人目の勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpaOjiOji</td></tr>
+        <td><a href="https://twitter.com/denpaOjiOji" class="btn">@denpaOjiOji</a></td></tr>
+        </table>
+        <p>ちゃんまさん</p>
+        <img src="images/chanma.JPG" class="img" alt="ちゃんま">
+        <div class="table1">
+        <table border="1">
+        <tr><td>プレイヤー名</td>
+        <td>ゆー</td></tr>
+        <tr><td>課金額</td>
+        <td>不明</td></tr>
+        <tr><td>備考</td>
+        <td></td></tr>
+        <tr><td>Twitter垢</td>
+        <td><a href="https://twitter.com/wloq_v" class="btn">@wloq_v</a></td></tr>
         </table>
         <p>ちょこみんとさん</p>
         <img src="images/chokominto.jpg" class="img" alt="ちょこみんと">
@@ -1231,7 +1320,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Denpa_men</td></tr>
+        <td><a href="https://twitter.com/Denpa_men" class="btn">@Denpa_men</a></td></tr>
+
         </table>
 	<p>ツキorangeさん</p>
         <img src="images/tukiorange.jpg" class="img" alt="ツキorange">
@@ -1244,7 +1334,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Moon_orange310</td></tr>
+        <td><a href="https://twitter.com/Moon_orange310" class="btn">@Moon_orange310</a></td></tr>
+
         </table>
         <p>つつごうさん</p>
         <img src="images/tutugou.png" class="img" alt="つつごう">
@@ -1270,7 +1361,7 @@ ul {
         <tr><td>備考</td>
         <td>(๑╹ω╹๑ )</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@UCeZmN4NSGSSd1V</td></tr>
+        <td><a href="https://twitter.com/UCeZmN4NSGSSd1V" class="btn">@UCeZmN4NSGSSd1V</a></td></tr>
         </table>
         <p>デュアルソウルさん</p>
         <img src="images/dualsoul.jpg" class="img" alt="Dソウル">
@@ -1283,7 +1374,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@otsdaerti_raven</td></tr>
+        <td><a href="https://twitter.com/otsdaerti_raven" class="btn">@otsdaerti_raven</a></td></tr>
         </table>
         <p>ドレミさん</p>
         <img src="images/doremi.jpg" class="img" alt="ドレミ">
@@ -1322,9 +1413,9 @@ ul {
         <tr><td>課金額</td>
         <td>無課金</td></tr>
         <tr><td>備考</td>
-        <td>最後のポーンやばい</td></tr>
+        <td>定期的にTwitterから消える人</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@neufhe</td></tr>
+        <td></td></tr>
         </table>
         <p>ぬゆるさん</p>
         <img src="images/nuyuru.jpg" class="img" alt="ぬゆる">
@@ -1337,7 +1428,7 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@NYR_DENPA</td></tr>
+        <td><a href="https://twitter.com/NYR_DENPA" class="btn">@NYR_DENPA</a></td></tr>
         </table>
         <p>ねむりのかみさまさん</p>
         <img src="images/nemukami.jpg" class="img" alt="ねむりのかみさま">
@@ -1350,7 +1441,8 @@ ul {
         <tr><td>備考</td>
         <td>ワイコロ勝利数カンスト者</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@____n__o____</td></tr>
+        <td><a href="https://twitter.com/____n__o____" class="btn">@____n__o____</a></td></tr>
+
         </table>
         <div id="hagyou"></div>
         <p>は行</p>
@@ -1365,7 +1457,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-	<td>@haa1280</td></tr></table>
+        <td><a href="https://twitter.com/haa1280" class="btn">@haa1280</a></td></tr>
+
         <p>パックさん</p>
         <img src="images/pakku.jpg" class="img" alt="パック">
         <div class="table1">
@@ -1390,7 +1483,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@nonstickmite866</td></tr>
+        <td><a href="https://twitter.com/nonstickmite866" class="btn">@nonstickmite866</a></td></tr>
+
         </table>
         <p>はやしたっかー</p>
         <img src="images/takka.jpg" class="img" alt="たっかー">
@@ -1403,7 +1497,7 @@ ul {
         <tr><td>備考</td>
         <td>自称YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@takka0407</td></tr>
+        <td><a href="https://twitter.com/takka0407" class="btn">@takka0407</a></td></tr>
         </table>
 	<p>はやしたっかーのサブ</p>
         <img src="images/takkasub.jpg" class="img" alt="たっかーのサブ">
@@ -1416,7 +1510,7 @@ ul {
         <tr><td>備考</td>
         <td>まだBランク</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@takka0407</td></tr>
+        <td><a href="https://twitter.com/takka0407" class="btn">@takka0407</a></td></tr>
         </table>
         <p>ヒクソン・ジャクソンさん</p>
         <img src="images/hikuson.jpg" class="img" alt="ヒクソン">
@@ -1429,7 +1523,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@hksn__dnp</td></tr>
+        <td><a href="https://twitter.com/hksn__dnp" class="btn">@hksn__dnp</a></td></tr>
+
         </table>
         <p>ヒロフミさん</p>
         <img src="images/hirohumi.jpg" class="img" alt="ヒロフミ">
@@ -1453,9 +1548,10 @@ ul {
         <tr><td>課金額</td>
         <td>不明</td></tr>
         <tr><td>備考</td>
-        <td>3月に引退</td></tr>
+        <td>2022年3月に引退</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Fairy_Tgroup</td></tr>
+        <td><a href="https://twitter.com/Fairy_Tgroup" class="btn">@Fairy_Tgroup</a></td></tr>
+
         </table>
         <p>ふていけいなはなくそさん</p>
         <img src="images/hutehana.jpg" class="img" alt="ふてはな">
@@ -1468,7 +1564,8 @@ ul {
         <tr><td>備考</td>
         <td>現在はまめもやしさんがデータを持っている</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@huteikeidenpa</td></tr>
+        <td><a href="https://twitter.com/huteikeidenpa" class="btn">@huteikeidenpa</a></td></tr>
+
         </table>
         <p>ふみーにゃさん</p>
         <img src="images/humi-nya.jpg" class="img" alt="ふみーにゃ">
@@ -1494,7 +1591,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Heruniaaa</td></tr>
+        <td><a href="https://twitter.com/Heruniaaa" class="btn">@Heruniaaa</a></td></tr>
+
         </table>
         <p>紅雨さん</p>
         <img src="images/beniame.JPG" class="img" alt="紅雨">
@@ -1507,7 +1605,8 @@ ul {
         <tr><td>備考</td>
         <td>Wiki編集者の人</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@dethuapple</td></tr>
+        <td><a href="https://twitter.com/dethuapple" class="btn">@dethuapple</a></td></tr>
+
         </table>
         <div id="magyou"></div>
 	<p>棒人間さん</p>
@@ -1521,7 +1620,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@denpa_bouningen</td></tr>
+        <td><a href="https://twitter.com/denpa_bouningen" class="btn">@denpa_bouningen</a></td></tr>
+
         </table>
         <p>ま行</p>
 	<p>まっちゃさん</p>
@@ -1535,7 +1635,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@HriK6uSemOakgBR</td></tr>
+        <td><a href="https://twitter.com/HriK6uSemOakgBR" class="btn">@HriK6uSemOakgBR</a></td></tr>
+
         </table>
 	<p>まめもやしさん</p>
         <img src="images/mamemoyasi.jpg" class="img" alt="まめもやし">
@@ -1548,7 +1649,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Freesia_DENPA</td></tr>
+        <td><a href="https://twitter.com/Freesia_DENPA" class="btn">@Freesia_DENPA</a></td></tr>
+
         </table>
         <p>みうさん</p>
         <img src="images/miu.jpg" class="img" alt="ヌフへ">
@@ -1600,7 +1702,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@mid_OA</td></tr>
+        <td><a href="https://twitter.com/mid_OA" class="btn">@mid_OA</a></td></tr>
+
         </table>
         <p>耳軸さん</p>
         <img src="images/mimiziku.jpg" class="img" alt="耳軸">
@@ -1626,7 +1729,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber<br>6月で引退、7月に復帰<br>12月に引退、12月に復帰<br>2月に引退、2月に復帰<br>2月に引退</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@miykure</td></tr>
+        <td><a href="https://twitter.com/miykure" class="btn">@miykure</a></td></tr>
+
         </table>
 	<p>めりださん</p>
         <img src="images/merida.jpg" class="img" alt="めりだ">
@@ -1639,7 +1743,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@m_denp</td></tr>
+        <td><a href="https://twitter.com/m_denp" class="btn">@m_denp</a></td></tr>
+
 	</table>
         <p>めるしーさん</p>
         <img src="images/merusi-.JPG" class="img" alt="めるしー">
@@ -1652,7 +1757,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@merci_game</td></tr>
+        <td><a href="https://twitter.com/merci_game" class="btn">@merci_game</a></td></tr>
+
         </table>
         <p>麺さん</p>
         <img src="images/menn.png" class="img" alt="麺">
@@ -1665,7 +1771,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@MEN_rome</td></tr>
+        <td><a href="https://twitter.com/MEN_rome" class="btn">@MEN_rome</a></td></tr>
+
         </table>
         <div id="yagyou"></div>
         <p>や行</p>
@@ -1706,7 +1813,8 @@ ul {
         <tr><td>備考</td>
         <td>4月で育成は終了</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@yamashin_DENPA</td></tr>
+        <td><a href="https://twitter.com/yamashin_DENPA" class="btn">@yamashin_DENPA</a></td></tr>
+
         </table>
 		
         <p>ゆいぽこさん</p>
@@ -1733,7 +1841,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@YOUE5682124</td></tr>
+        <td><a href="https://twitter.com/YOUE5682124" class="btn">@YOUE5682124</a></td></tr>
+
         </table>
         <p>ゆっくりドリームさん</p>
         <img src="images/yukudori.jpg" class="img" alt="ゆっくりドリーム">
@@ -1746,7 +1855,8 @@ ul {
         <tr><td>備考</td>
         <td>6月から復帰</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@yukudori1008</td></tr>
+        <td><a href="https://twitter.com/yukudori1008" class="btn">@yukudori1008</a></td></tr>
+
         </table>
         <p>ゆっくんさん</p>
         <img src="images/yukkun.jpg" class="img" alt="ゆっくん">
@@ -1772,7 +1882,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber<br>YKさんの弟さん</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@0HDItsUp11hdrkL</td></tr>
+        <td><a href="https://twitter.com/0HDItsUp11hdrkL" class="btn">@0HDItsUp11hdrkL</a></td></tr>
+
         </table>
         <p>ヨッシーさん</p>
         <img src="images/yossi-2.jpg" class="img" alt="ヨッシー">
@@ -1800,7 +1911,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@Letasu_Denpa</td></tr>
+        <td><a href="https://twitter.com/Letasu_Denpa" class="btn">@Letasu_Denpa</a></td></tr>
+
         </table>
         <div id="wagyou"></div>
         <p>わ行</p>
@@ -1815,7 +1927,8 @@ ul {
         <tr><td>備考</td>
         <td>上画面映らない</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@kakkoWARAl144</td></tr>
+        <td><a href="https://twitter.com/kakkoWARAl144" class="btn">@kakkoWARAl144</a></td></tr>
+
         </table>
         <div id="sonota"></div>
         <p>その他</p>
@@ -1830,7 +1943,8 @@ ul {
         <tr><td>備考</td>
         <td>顔厳選ガチエンジョイ勢</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@miiversedenpabj</td></tr>
+        <td><a href="https://twitter.com/miiversedenpabj" class="btn">@miiversedenpabj</a></td></tr>
+
         </table>
         <p>BlueWaveさん</p>
         <img src="images/bluewave.jpg" class="img" alt="bluewave">
@@ -1856,7 +1970,8 @@ ul {
         <tr><td>備考</td>
         <td>よく名前を変える人</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@HelloWo23274715</td></tr>
+        <td><a href="https://twitter.com/HelloWo23274715" class="btn">@HelloWo23274715</a></td></tr>
+
         </table>
 	<p>kitakaさん</p>
         <img src="images/kitaka.JPG" class="img" alt="kitaka">
@@ -1869,7 +1984,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@kitaka_9</td></tr>
+        <td><a href="https://twitter.com/kitaka_9" class="btn">@kitaka_9</a></td></tr>
+
         </table>
         <p>koinuさん</p>
         <img src="images/koinu.png" class="img" alt="koinu">
@@ -1921,7 +2037,8 @@ ul {
         <tr><td>備考</td>
         <td>ほぼ引退済み</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@M_Ktomato555</td></tr>
+        <td><a href="https://twitter.com/M_Ktomato555" class="btn">@M_Ktomato555</a></td></tr>
+
         </table>
 	<p>P.さん</p>
         <img src="images/psann.jpg" class="img" alt="Pさん">
@@ -1934,7 +2051,8 @@ ul {
         <tr><td>備考</td>
         <td>顔けいじゅ</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@lam_qiiii</td></tr>
+        <td><a href="https://twitter.com/lam_qiiii" class="btn">@lam_qiiii</a></td></tr>
+
         </table>
         <p>Rさん</p>
         <img src="images/r.jpg" class="img" alt="R">
@@ -1960,7 +2078,8 @@ ul {
         <tr><td>備考</td>
         <td>むがいくんの生みの親<br>現在はBランに潜っている。</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@root_mgi</td></tr>
+        <td><a href="https://twitter.com/root_mgi" class="btn">@root_mgi</a></td></tr>
+
         </table>
         <p>SLさん</p>
         <img src="images/esueru.jpg" class="img" alt="SL">
@@ -2000,7 +2119,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@shocyan524</td></tr>
+        <td><a href="https://twitter.com/shocyan524" class="btn">@shocyan524</a></td></tr>
+
         </table>
         <p>Twilightさん</p>
         <img src="images/twilight.jpg" class="img" alt="twilight">
@@ -2026,7 +2146,8 @@ ul {
         <tr><td>備考</td>
         <td></td></tr>
         <tr><td>Twitter垢</td>
-        <td>@rorukomi777</td></tr>
+        <td><a href="https://twitter.com/rorukomi777" class="btn">@rorukomi777</a></td></tr>
+
         </table>
         <p>YKさん</p>
         <img src="images/yk.jpg" class="img" alt="yk">
@@ -2039,7 +2160,8 @@ ul {
         <tr><td>備考</td>
         <td>YouTuber</td></tr>
         <tr><td>Twitter垢</td>
-        <td>@am60477961</td></tr>
+        <td><a href="https://twitter.com/am60477961" class="btn">@am60477961</a></td></tr>
+
         </table>
         <p>yuukiさん</p>
         <img src="images/yuki.jpg" class="img" alt="yuki">
