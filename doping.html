@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<title>ドピ正規判定</title>
+<body>
+
+<p>9 世代(非オーラ)でのドーピング値が実現可能かどうかを計算します。</p>
+<p>空白部分には何も入力しなくてもかまいません。</p>
+<br>
+<form action="#" method="post">
+    <p>S: <input type="text" id="S"></p>
+    <p>A: <input type="text" id="A"></p>
+    <p>L: <input type="text" id="L"></p>
+    <p>P: <input type="text" id="P"></p>
+    <p>G: <input type="text" id="G"></p>
+    <p><input type="button" value="判定" id="btn"></p>
+</form>
+<br>
+<p id="out">結果はここに表示されます</p>
+<script>
+    function buttonClick() {
+        let S = parseInt(document.getElementById('S').value) || 0;
+        let A = parseInt(document.getElementById('A').value) || 0;
+        let L = parseInt(document.getElementById('L').value) || 0;
+        let P = parseInt(document.getElementById('P').value) || 0;
+        let G = parseInt(document.getElementById('G').value) || 0;
+        let values = [S, A, L, P, G];
+        values.sort(function(a, b) {
+            return b - a;
+        });
+        values[1] += values[0];
+        values[2] += values[1];
+        values[3] += values[2];
+        values[4] += values[3];
+        let ans = 1;
+        if (values[0] > 138) {ans = 0;}
+        if (values[1] > 207) {ans = 0;}
+        if (values[2] > 258) {ans = 0;}
+        if (values[3] > 309) {ans = 0;}
+        if (values[4] > 345) {ans = 0;}
+        if (ans == 1) {
+            out.innerText = "正規です";
+        } else {
+            out.innerText = "非正規です";
+        }
+    }
+
+    let out = document.getElementById('out');
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click', buttonClick);
+</script>
+</body>
+</html>
