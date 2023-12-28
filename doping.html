@@ -4,7 +4,7 @@
 <body>
 
 <p>9 世代(非オーラ)でのドーピング値が実現可能かどうかを計算します。</p>
-<p>空白部分には何も入力しなくてもかまいません。</p>
+<p>0 の部分には何も入力しなくてもかまいません。</p>
 <br>
 <form action="#" method="post">
     <p>S: <input type="text" id="S"></p>
@@ -17,6 +17,10 @@
 <br>
 <p id="out">結果はここに表示されます</p>
 <script>
+    function toHex(n) {
+        return n.toString(16).toUpperCase().padStart(2, '0');
+    }
+
     function buttonClick() {
         let S = parseInt(document.getElementById('S').value) || 0;
         let A = parseInt(document.getElementById('A').value) || 0;
@@ -24,24 +28,29 @@
         let P = parseInt(document.getElementById('P').value) || 0;
         let G = parseInt(document.getElementById('G').value) || 0;
         let values = [S, A, L, P, G];
-        values.sort(function(a, b) {
-            return b - a;
-        });
-        values[1] += values[0];
-        values[2] += values[1];
-        values[3] += values[2];
-        values[4] += values[3];
+        values.sort((a, b) => a - b);
+        values[3] += values[4];
+        values[2] += values[3];
+        values[1] += values[2];
+        values[0] += values[1];
         let ans = 1;
-        if (values[0] > 138) {ans = 0;}
-        if (values[1] > 207) {ans = 0;}
-        if (values[2] > 258) {ans = 0;}
-        if (values[3] > 309) {ans = 0;}
-        if (values[4] > 345) {ans = 0;}
-        if (ans == 1) {
-            out.innerText = "正規です";
+        if (values[4] > 138) ans = 0;
+        if (values[3] > 207) ans = 0;
+        if (values[2] > 258) ans = 0;
+        if (values[1] > 309) ans = 0;
+        if (values[0] > 345) ans = 0;
+        
+        let result;
+        if (ans) {
+            result = `正規です
+
+088D0E28 ${toHex(G) + toHex(P) + toHex(A) + toHex(L)}
+088D0E2C 000000${toHex(S)}
+088D0E30 00000000`;
         } else {
-            out.innerText = "非正規です";
+            result = "非正規です";
         }
+        out.innerText = result;
     }
 
     let out = document.getElementById('out');
